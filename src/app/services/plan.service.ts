@@ -9,11 +9,13 @@ import { Plan } from '../models/plan';
 })
 export class PlanService {
   url = "https://tengoapp.herokuapp.com/api/plan/";
+  
   constructor(private http: HttpClient) { }
 
   getPlan(): Observable<any> {
     return this.http.get(this.url);
   }
+
 
   agregarPlan(plan: Plan): Observable<any>{
     return this.http.post(this.url+"/create",plan);

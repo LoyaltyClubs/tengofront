@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Empresa } from 'src/app/models/empresa';
+import { EmpresaService } from '../../services/empresa.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpresaIndexComponent implements OnInit {
 
-  constructor() { }
+  listEmpresas: Empresa[] = [];
+
+  constructor(private _empresaService: EmpresaService) { }
 
   ngOnInit(): void {
+    this.obtenerEmpresa();
+  }
+
+  obtenerEmpresa(){
+    this._empresaService.getEmpresa().subscribe(data => {
+      this.listEmpresas = data;
+    }, error => {
+      console.log(error);
+    })
   }
 
 }
