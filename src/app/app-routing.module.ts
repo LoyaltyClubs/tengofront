@@ -4,6 +4,7 @@ import { IndexComponent } from './dashboard/index/index.component';
 import { EmpresaIndexComponent } from './empresas/empresa_index/empresa_index.component';
 import { ListarComponent as ListarComponentRubro} from './empresas/rubro/listar/listar.component';
 import { ListarComponent as ListarComponentPlanes } from './empresas/planes/listar/listar.component';
+import { CommonModule } from '@angular/common';
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
