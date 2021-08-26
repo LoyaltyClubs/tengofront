@@ -37,6 +37,7 @@ export class NuevoComponent implements OnInit {
     this._planService.agregarPlan(PLAN).subscribe(data => {this.router.navigate(['/empresa/planes']);}, 
     error => {
       console.log(error);
+      this.planForm.reset();
     })
     
   }
