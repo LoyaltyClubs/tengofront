@@ -18,7 +18,7 @@ export class ListarComponent implements OnInit {
   }
 
   obtenerPlanes(){
-    this._planService.getProductos().subscribe(data => {
+    this._planService.getPlan().subscribe(data => {
       this.listPlanes = data;
     }, error => {
       console.log(error);

@@ -21,7 +21,7 @@ const routes: Routes = [
   {
     path: 'planes/plan',
     component: NuevoComponentPlanes
-  }
+  },
 ]
 
 @NgModule({
