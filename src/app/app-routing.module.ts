@@ -14,7 +14,8 @@ const routes: Routes = [
     loadChildren: () => import('./empresas/empresas.module').then((m) => m.EmpresasModule),
   },
   { path: 'rubro', component: ListarComponentRubro},
-  { path: 'planes', component: ListarComponentPlanes},
+
+  //{ path: 'planes/plan', component: NuevoComponentPlanes},
   { path: '**', pathMatch: 'full', redirectTo: 'dashboard' },
   
 
