@@ -5,6 +5,7 @@ import { ListarComponent as ListarComponentPlanes } from './planes/listar/listar
 import { NuevoComponent as NuevoComponentPlanes } from './planes/nuevo/nuevo.component';
 //import { NuevoComponent as NuevoComponentEmpresa } from './empresa/nuevo/nuevo.component';
 import { EmpresaIndexComponent } from './empresa_index/empresa_index.component'
+import { CiudadesNuevoComponent } from './ciudades/ciudades-nuevo/ciudades-nuevo.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'ciudades',
     component: ListarComponent,
+  },
+  {
+    path: 'ciudades/nuevo',
+    component: CiudadesNuevoComponent
   },
   {
     path: 'planes',

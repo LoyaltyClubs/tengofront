@@ -16,4 +16,8 @@ export class EmpresaCiudadService {
   getAll(): Observable<EmpresaCiudad[]> {
     return this.http.get<EmpresaCiudad[]>(this.basePath);
   }
+
+  create(ciudad: EmpresaCiudad): Observable<EmpresaCiudad[]> {
+    return this.http.post<EmpresaCiudad[]>(`${this.basePath}create`, ciudad);
+  }
 }

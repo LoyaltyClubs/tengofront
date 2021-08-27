@@ -10,6 +10,7 @@ import { ListarComponent as ListarComponentRubro } from './rubro/listar/listar.c
 import { ListarComponent as ListarComponentPlanes } from './planes/listar/listar.component';
 import { NuevoComponent as NuevoComponentRubro } from './rubro/nuevo/nuevo.component';
 import { NuevoComponent as NuevoComponentPlanes } from './planes/nuevo/nuevo.component';
+import { CiudadesNuevoComponent } from './ciudades/ciudades-nuevo/ciudades-nuevo.component';
 
 
 
@@ -22,7 +23,8 @@ import { NuevoComponent as NuevoComponentPlanes } from './planes/nuevo/nuevo.com
     ListarComponentRubro,
     NuevoComponentRubro,
     ListarComponentPlanes,
-    NuevoComponentPlanes
+    NuevoComponentPlanes,
+    CiudadesNuevoComponent,
   ],
   imports: [
     CommonModule,
