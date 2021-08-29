@@ -11,6 +11,8 @@ import { ListarComponent as ListarComponentPlanes } from './planes/listar/listar
 import { NuevoComponent as NuevoComponentRubro } from './rubro/nuevo/nuevo.component';
 import { NuevoComponent as NuevoComponentPlanes } from './planes/nuevo/nuevo.component';
 import { CiudadesNuevoComponent } from './ciudades/ciudades-nuevo/ciudades-nuevo.component';
+import { CiudadesEditarComponent } from './ciudades/ciudades-editar/ciudades-editar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -25,12 +27,14 @@ import { CiudadesNuevoComponent } from './ciudades/ciudades-nuevo/ciudades-nuevo
     ListarComponentPlanes,
     NuevoComponentPlanes,
     CiudadesNuevoComponent,
+    CiudadesEditarComponent,
   ],
   imports: [
     CommonModule,
     ApiClientModule, 
     EmpresasRoutingModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule
   ]
 })
