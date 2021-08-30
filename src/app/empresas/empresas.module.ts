@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RubrosEditarComponent } from './rubro/rubros-editar/rubros-editar.component';
 import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
 import { EmpresasEditarComponent } from './empresas/empresas-editar/empresas-editar.component';
+import { PlanesEditarComponent } from './planes/planes-editar/planes-editar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EmpresasEditarComponent } from './empresas/empresas-editar/empresas-edi
     CiudadesEditarComponent,
     RubrosEditarComponent,
     EmpresaIndexComponent,
-    EmpresasEditarComponent
+    EmpresasEditarComponent,
+    PlanesEditarComponent
   ],
   imports: [
     CommonModule,

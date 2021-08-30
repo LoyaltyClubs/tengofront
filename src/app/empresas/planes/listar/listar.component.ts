@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Plan } from 'src/app/api-client/api.types';
 import { PlanService } from '../../../services/plan.service';
-import { Plan } from '../../../models/plan';
 
 @Component({
   selector: 'app-listar',
@@ -10,6 +10,9 @@ import { Plan } from '../../../models/plan';
 export class ListarComponent implements OnInit {
 
   listPlanes: Plan[] = [];
+
+  @ViewChild('deleteModal', { static: true })
+  deleteModal: TemplateRef<any>
 
   constructor(private _planService: PlanService) { }
 
@@ -25,4 +28,30 @@ export class ListarComponent implements OnInit {
     })
   }
 
+  openDeleteModal(id: number) {
+    this.eliminarPlan(id)
+    /*this.modalService
+      .open(this.deleteModal, {
+        backdrop: 'static',
+        keyboard: false,
+      })
+      .result.then(
+        (_) => {
+          //eliminar
+        },
+        (_) => {}
+      )*/
+  }
+
+  eliminarPlan(id: number) {
+    this._planService.delete(id).subscribe(
+      () => {
+        console.log('eliminado')
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {}
+    );
+  }
 }
