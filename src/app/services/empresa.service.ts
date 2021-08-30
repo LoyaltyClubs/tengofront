@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Empresa } from '../models/empresa';
+import { Empresa } from '../api-client/api.types';
 
 
 @Injectable({
@@ -18,5 +18,13 @@ export class EmpresaService {
 
   agregarEmpresa(empresa: Empresa): Observable<any>{
     return this.http.post(this.url+"/create",empresa);
+  }
+
+  edit(empresa: Empresa): Observable<Empresa> {
+    return this.http.put<Empresa>(`${this.url}update/${empresa.id}`, empresa);
+  }
+
+  delete(id: number): Observable<Empresa> {
+    return this.http.delete<Empresa>(`${this.url}delete/${id}`);
   }
 }

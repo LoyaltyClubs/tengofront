@@ -13,6 +13,8 @@ import { CiudadesNuevoComponent } from './ciudades/ciudades-nuevo/ciudades-nuevo
 import { CiudadesEditarComponent } from './ciudades/ciudades-editar/ciudades-editar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RubrosEditarComponent } from './rubro/rubros-editar/rubros-editar.component';
+import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
+import { EmpresasEditarComponent } from './empresas/empresas-editar/empresas-editar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { RubrosEditarComponent } from './rubro/rubros-editar/rubros-editar.compo
     CiudadesNuevoComponent,
     CiudadesEditarComponent,
     RubrosEditarComponent,
+    EmpresaIndexComponent,
+    EmpresasEditarComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Empresa } from 'src/app/models/empresa';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Empresa } from 'src/app/api-client/api.types';
 import { EmpresaService } from '../../services/empresa.service';
 
 @Component({
@@ -9,8 +10,10 @@ import { EmpresaService } from '../../services/empresa.service';
 export class EmpresaIndexComponent implements OnInit {
 
   listEmpresas: Empresa[] = [];
+  @ViewChild('deleteModal', { static: true })
+  deleteModal: TemplateRef<any>
 
-  constructor(private _empresaService: EmpresaService) { }
+  constructor(private _empresaService: EmpresaService, private readonly modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.obtenerEmpresa();
@@ -24,4 +27,30 @@ export class EmpresaIndexComponent implements OnInit {
     })
   }
 
+  openDeleteModal(id: number) {
+    this.eliminarEmpresa(id)
+    /*this.modalService
+      .open(this.deleteModal, {
+        backdrop: 'static',
+        keyboard: false,
+      })
+      .result.then(
+        (_) => {
+          //eliminar
+        },
+        (_) => {}
+      )*/
+  }
+
+  eliminarEmpresa(id: number) {
+    this._empresaService.delete(id).subscribe(
+      () => {
+        console.log('eliminado')
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {}
+    );
+  }
 }

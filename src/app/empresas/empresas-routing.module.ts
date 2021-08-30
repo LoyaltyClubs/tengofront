@@ -10,11 +10,16 @@ import { CiudadesEditarComponent } from './ciudades/ciudades-editar/ciudades-edi
 import { ListarRubroComponent } from './rubro/listar/listar.component';
 import { NuevoRubroComponent } from './rubro/nuevo/nuevo.component';
 import { RubrosEditarComponent } from './rubro/rubros-editar/rubros-editar.component';
+import { EmpresasEditarComponent } from './empresas/empresas-editar/empresas-editar.component';
 
 const routes: Routes = [
   {
     path: '',
     component: EmpresaIndexComponent,
+  },
+  {
+    path: 'editar',
+    component: EmpresasEditarComponent,
   },
   /*{
     path: 'empresa/empresa',
