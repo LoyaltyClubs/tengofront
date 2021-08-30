@@ -6,7 +6,7 @@
 
         <div class="card-content">
             <h4 class="card-title">Empresas</h4>
-            <button class="btn btn-info" routerLink="plan">Nuevo</button>
+            <button class="btn btn-info" routerLink="empresa">Nuevo</button>
             <div class="toolbar">
                 <!--        Here you can write extra buttons/actions for the toolbar              -->
             </div>
@@ -15,7 +15,7 @@
                     <thead>
                         <tr>
                             <th>Razon Social</th>
-                            <th>NIT</th>
+                            <th>CI</th>
                             <th>Representante Legal</th>
                             <th>Fecha de Cierre</th>
                             <th>Estado</th>
@@ -25,7 +25,7 @@
                     <tfoot>
                         <tr>
                             <th>Razon Social</th>
-                            <th>NIT</th>
+                            <th>CI</th>
                             <th>Representante Legal</th>
                             <th>Fecha de Cierre</th>
                             <th>Estado</th>
@@ -35,7 +35,7 @@
                     <tbody>
                         <tr *ngFor="let empresa of listEmpresas">
                             <td>{{empresa.razon_social}}</td>
-                            <td>{{empresa.nit}}</td>
+                            <td>{{empresa.ci}}</td>
                             <td>{{empresa.representante_legal}}</td>
                             <td>{{empresa.fecha_cierre}}</td>
                             <td>{{empresa.estado}}</td>

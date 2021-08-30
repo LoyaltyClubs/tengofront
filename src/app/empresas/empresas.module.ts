@@ -13,6 +13,9 @@ import { NuevoComponent as NuevoComponentPlanes } from './planes/nuevo/nuevo.com
 import { CiudadesNuevoComponent } from './ciudades/ciudades-nuevo/ciudades-nuevo.component';
 import { CiudadesEditarComponent } from './ciudades/ciudades-editar/ciudades-editar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EmpresaNuevoComponent } from './empresa-nuevo/empresa-nuevo.component';
+import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
+
 
 
 
@@ -28,6 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NuevoComponentPlanes,
     CiudadesNuevoComponent,
     CiudadesEditarComponent,
+    EmpresaNuevoComponent,
+    EmpresaIndexComponent
   ],
   imports: [
     CommonModule,
