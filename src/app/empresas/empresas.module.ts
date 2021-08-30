@@ -11,9 +11,6 @@ import { ListarComponent as ListarComponentPlanes } from './planes/listar/listar
 import { NuevoComponent as NuevoComponentRubro } from './rubro/nuevo/nuevo.component';
 import { NuevoComponent as NuevoComponentPlanes } from './planes/nuevo/nuevo.component';
 
-
-
-
 @NgModule({
   declarations: [
     IndexComponent,

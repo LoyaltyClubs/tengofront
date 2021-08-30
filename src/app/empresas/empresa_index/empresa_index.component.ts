@@ -4,8 +4,7 @@ import { EmpresaService } from '../../services/empresa.service';
 
 @Component({
   selector: 'app-index',
-  templateUrl: './empresa_index.component.html',
-  styleUrls: ['./empresa_index.component.css']
+  templateUrl: './empresa_index.component.html'
 })
 export class EmpresaIndexComponent implements OnInit {
 
