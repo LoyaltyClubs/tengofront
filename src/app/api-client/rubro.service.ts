@@ -1,20 +1,20 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { EmpresaCiudad } from "./api.types"
+import { EmpresaCiudad, Rubro } from "./api.types"
 
 @Injectable({
   providedIn: "root",
 })
-export class EmpresaCiudadService {
-  private basePath = `https://tengoapp.herokuapp.com/api/ciudad/`
+export class RubroService {
+  private basePath = `https://tengoapp.herokuapp.com/api/rubro/`
 
   constructor(
     private readonly http: HttpClient,
   ) {}
 
-  getAll(): Observable<EmpresaCiudad[]> {
-    return this.http.get<EmpresaCiudad[]>(this.basePath);
+  getAll(): Observable<Rubro[]> {
+    return this.http.get<Rubro[]>(this.basePath);
   }
 
   create(ciudad: EmpresaCiudad): Observable<EmpresaCiudad[]> {

@@ -5,8 +5,8 @@
         </div>
 
         <div class="card-content">
-            <h4 class="card-title">Rubro</h4>
-            <form [formGroup]="formGroup" (ngSubmit)="agregarRubro()">
+            <h4 class="card-title">Ciudad</h4>
+            <form [formGroup]="formGroup" (ngSubmit)="editarCiudad()">
                 <div class="form-group label-floating">
                     <label class="control-label">Nombre</label>
                     <input type="text" formControlName="nombre" class="form-control">
@@ -17,7 +17,7 @@
                         Estado
                     </label>
                 </div>
-                <button class="btn btn-fill btn-default" routerLink="/empresa/rubros">Volver</button>
+                <button class="btn btn-fill btn-default" routerLink="/empresa/ciudades">Volver</button>
                 <button type="submit" class="btn btn-fill btn-info">Enviar</button>
             </form>
         </div>

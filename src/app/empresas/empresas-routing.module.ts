@@ -5,6 +5,11 @@ import { ListarComponent as ListarComponentPlanes } from './planes/listar/listar
 import { NuevoComponent as NuevoComponentPlanes } from './planes/nuevo/nuevo.component';
 //import { NuevoComponent as NuevoComponentEmpresa } from './empresa/nuevo/nuevo.component';
 import { EmpresaIndexComponent } from './empresa_index/empresa_index.component'
+import { CiudadesNuevoComponent } from './ciudades/ciudades-nuevo/ciudades-nuevo.component';
+import { CiudadesEditarComponent } from './ciudades/ciudades-editar/ciudades-editar.component';
+import { ListarRubroComponent } from './rubro/listar/listar.component';
+import { NuevoRubroComponent } from './rubro/nuevo/nuevo.component';
+import { RubrosEditarComponent } from './rubro/rubros-editar/rubros-editar.component';
 
 const routes: Routes = [
   {
@@ -20,12 +25,32 @@ const routes: Routes = [
     component: ListarComponent,
   },
   {
+    path: 'ciudades/nuevo',
+    component: CiudadesNuevoComponent
+  },
+  {
+    path: 'ciudades/editar',
+    component: CiudadesEditarComponent
+  },
+  {
     path: 'planes',
     component: ListarComponentPlanes
   },
   {
     path: 'planes/plan',
     component: NuevoComponentPlanes
+  },
+  {
+    path: 'rubros',
+    component: ListarRubroComponent
+  },
+  {
+    path: 'rubros/nuevo',
+    component: NuevoRubroComponent
+  },
+  {
+    path: 'rubros/editar',
+    component: RubrosEditarComponent
   },
 ]
 
