@@ -10,6 +10,9 @@ import { ListarComponent as ListarComponentRubro } from './rubro/listar/listar.c
 import { ListarComponent as ListarComponentPlanes } from './planes/listar/listar.component';
 import { NuevoComponent as NuevoComponentRubro } from './rubro/nuevo/nuevo.component';
 import { NuevoComponent as NuevoComponentPlanes } from './planes/nuevo/nuevo.component';
+import { CiudadesNuevoComponent } from './ciudades/ciudades-nuevo/ciudades-nuevo.component';
+import { CiudadesEditarComponent } from './ciudades/ciudades-editar/ciudades-editar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EmpresaNuevoComponent } from './empresa-nuevo/empresa-nuevo.component';
 import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
 
@@ -26,6 +29,8 @@ import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
     NuevoComponentRubro,
     ListarComponentPlanes,
     NuevoComponentPlanes,
+    CiudadesNuevoComponent,
+    CiudadesEditarComponent,
     EmpresaNuevoComponent,
     EmpresaIndexComponent
   ],
@@ -34,6 +39,7 @@ import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
     ApiClientModule, 
     EmpresasRoutingModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule
   ]
 })
