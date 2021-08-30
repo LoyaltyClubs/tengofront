@@ -7,6 +7,9 @@ import { NuevoComponent as NuevoComponentPlanes } from './planes/nuevo/nuevo.com
 import { EmpresaIndexComponent } from './empresa_index/empresa_index.component'
 import { CiudadesNuevoComponent } from './ciudades/ciudades-nuevo/ciudades-nuevo.component';
 import { CiudadesEditarComponent } from './ciudades/ciudades-editar/ciudades-editar.component';
+import { ListarRubroComponent } from './rubro/listar/listar.component';
+import { NuevoRubroComponent } from './rubro/nuevo/nuevo.component';
+import { RubrosEditarComponent } from './rubro/rubros-editar/rubros-editar.component';
 
 const routes: Routes = [
   {
@@ -36,6 +39,18 @@ const routes: Routes = [
   {
     path: 'planes/plan',
     component: NuevoComponentPlanes
+  },
+  {
+    path: 'rubros',
+    component: ListarRubroComponent
+  },
+  {
+    path: 'rubros/nuevo',
+    component: NuevoRubroComponent
+  },
+  {
+    path: 'rubros/editar',
+    component: RubrosEditarComponent
   },
 ]
 
