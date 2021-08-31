@@ -18,6 +18,6 @@ export class PlanService {
 
 
   agregarPlan(plan: Plan): Observable<any>{
-    return this.http.post(this.url+"/create",plan);
+    return this.http.post(this.url+"create",plan);
   }
 }
