@@ -17,7 +17,7 @@ export class EmpresaService {
   }
 
   agregarEmpresa(empresa: Empresa): Observable<any>{
-    return this.http.post(this.url+"/create",empresa);
+    return this.http.post(this.url+"create",empresa);
   }
 
   edit(empresa: Empresa): Observable<Empresa> {
