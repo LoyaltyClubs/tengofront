@@ -31,3 +31,13 @@ export type Empresa = {
   plan_id: number
   deleted: boolean
 }
+
+export type Plan = {
+  id: number;
+  nombre: string;
+  estado: boolean;
+  seguro: number;
+  mantenimiento: number;
+  recargo: number;
+  deleted: boolean;
+}

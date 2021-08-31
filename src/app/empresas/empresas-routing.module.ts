@@ -10,6 +10,7 @@ import { ListarRubroComponent } from './rubro/listar/listar.component';
 import { NuevoRubroComponent } from './rubro/nuevo/nuevo.component';
 import { RubrosEditarComponent } from './rubro/rubros-editar/rubros-editar.component';
 import { EmpresasEditarComponent } from './empresas/empresas-editar/empresas-editar.component';
+import { PlanesEditarComponent } from './planes/planes-editar/planes-editar.component';
 import { EmpresaNuevoComponent } from './empresa-nuevo/empresa-nuevo.component';
 
 const routes: Routes = [
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'planes/plan',
     component: NuevoComponentPlanes
+  },
+  {
+    path: 'planes/editar',
+    component: PlanesEditarComponent
   },
   {
     path: 'rubros',

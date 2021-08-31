@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Plan } from 'src/app/models/plan';
+import { Plan } from 'src/app/api-client/api.types';
 import { PlanService } from '../../../services/plan.service';
 
 @Component({
@@ -26,20 +26,11 @@ export class NuevoComponent implements OnInit {
   }
 
   agregarPlan(){
-    const PLAN: Plan = {
-      nombre: this.planForm.get('nombre')?.value,
-      seguro: this.planForm.get('seguro')?.value,
-      mantenimiento: this.planForm.get('mantenimiento')?.value,
-      recargo: this.planForm.get('recargo')?.value,
-      estado: this.planForm.get('estado')?.value,
-      deleted: false
-    }
-    this._planService.agregarPlan(PLAN).subscribe(data => {this.router.navigate(['/empresa/planes']);}, 
+    this._planService.agregarPlan(this.planForm.value).subscribe(data => {this.router.navigate(['/empresa/planes']);}, 
     error => {
       console.log(error);
       this.planForm.reset();
     })
-    
   }
 
 }
