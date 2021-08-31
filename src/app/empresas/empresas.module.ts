@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListarComponent } from './ciudades/listar/listar.component';
-import { NuevoComponent } from './rubro/nuevo/nuevo.component';
+import { NuevoRubroComponent } from './rubro/nuevo/nuevo.component';
 import { IndexComponent } from '../dashboard/index/index.component';
 import { ApiClientModule } from '../api-client/api-client.module';
 import { EmpresasRoutingModule } from './empresas-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListarComponent as ListarComponentRubro } from './rubro/listar/listar.component';
+import { ListarRubroComponent } from './rubro/listar/listar.component';
 import { ListarComponent as ListarComponentPlanes } from './planes/listar/listar.component';
-import { NuevoComponent as NuevoComponentRubro } from './rubro/nuevo/nuevo.component';
 import { NuevoComponent as NuevoComponentPlanes } from './planes/nuevo/nuevo.component';
 import { CiudadesNuevoComponent } from './ciudades/ciudades-nuevo/ciudades-nuevo.component';
 import { CiudadesEditarComponent } from './ciudades/ciudades-editar/ciudades-editar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RubrosEditarComponent } from './rubro/rubros-editar/rubros-editar.component';
 import { EmpresaNuevoComponent } from './empresa-nuevo/empresa-nuevo.component';
 import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
 
@@ -24,13 +24,13 @@ import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
   declarations: [
     IndexComponent,
     ListarComponent,
-    NuevoComponent,
-    ListarComponentRubro,
-    NuevoComponentRubro,
+    ListarRubroComponent,
+    NuevoRubroComponent,
     ListarComponentPlanes,
     NuevoComponentPlanes,
     CiudadesNuevoComponent,
     CiudadesEditarComponent,
+    RubrosEditarComponent,
     EmpresaNuevoComponent,
     EmpresaIndexComponent
   ],
