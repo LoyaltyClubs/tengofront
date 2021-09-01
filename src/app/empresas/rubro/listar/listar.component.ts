@@ -11,8 +11,8 @@ import { RubroService } from 'src/app/api-client/rubro.service';
 export class ListarRubroComponent implements OnInit {
   rubros: Rubro[] = [];
 
-  @ViewChild('deleteModal', { static: true })
-  deleteModal: TemplateRef<any>
+  //@ViewChild('deleteModal', { static: true })
+  //deleteModal: TemplateRef<any>
 
   constructor(
     readonly rubroService: RubroService,
@@ -52,13 +52,13 @@ export class ListarRubroComponent implements OnInit {
 
   eliminarRubro(id: number) {
     this.rubroService.delete(id).subscribe(
-      () => {
-        console.log('eliminado')
+      (res) => {
+        console.log(res)
       },
       (error) => {
         console.log(error);
       },
-      () => {}
+      //() => {}
     );
   }
 }

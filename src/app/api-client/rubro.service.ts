@@ -26,6 +26,6 @@ export class RubroService {
   }
 
   delete(id: number): Observable<EmpresaCiudad> {
-    return this.http.put<EmpresaCiudad>(`${this.basePath}delete`, id);
+    return this.http.put<EmpresaCiudad>(`${this.basePath}delete/${id}`,id);
   }
 }
