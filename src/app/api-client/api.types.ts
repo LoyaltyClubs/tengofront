@@ -41,3 +41,31 @@ export type Plan = {
   recargo: number;
   deleted: boolean;
 }
+
+export type Cliente = {
+  readonly id: number
+  readonly nombre: string
+  readonly apellido_paterno: string
+  readonly apellido_materno: string
+  readonly estado_civil: string
+  readonly fecha_nacimiento: string
+  readonly ci: string
+  readonly calle_particular: string
+  readonly extension: string
+  readonly barrio: string
+  readonly dia_pago: string
+  readonly saldo: string
+  readonly sexo:  string
+  readonly zona:   string
+  readonly provincia:  string
+  readonly ciudad_id:  string
+  readonly telefono_fijo:  string
+  readonly telefono_celular:  string
+  readonly email:  string
+  readonly nombre_referencia:  string
+  readonly provincia_referencia:  string
+  readonly telefono_referencia:  string
+  readonly tipo_tel_referencia:  string
+  readonly ciudad_referencia:  string
+  readonly estado:  string
+}

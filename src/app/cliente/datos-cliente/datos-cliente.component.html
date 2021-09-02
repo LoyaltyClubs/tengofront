@@ -1,1 +1,253 @@
-<p>datos-cliente works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="editarCliente()">
+    <div class="row">
+      <div class="col-lg-4">
+          <label for="nombre" style="margin: 0px;">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            id="nombre"
+            formControlName="nombre"
+          />
+      </div>
+      <div class="col-lg-4">
+              <label for="apellido_paterno" style="margin: 0px;">Apellido Paterno</label>
+              <input
+                type="text"
+                class="form-control"
+                style="margin: 0px;;"
+                id="apellido_paterno"
+                formControlName="apellido_paterno"
+              />
+      </div>
+      <div class="col-lg-4">
+          <label for="apellido_materno" style="margin: 0px;">Apellido Materno</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;;"
+            id="apellido_materno"
+            formControlName="apellido_materno"
+          />
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-4">
+          <label class="label-control">Estado Civil</label>
+
+        <select
+          class="selectpicker"
+          data-style="select-with-transition"
+          title="Estado Civil"
+          data-size="7"
+          formControlName="estado_civil"
+        >
+          <option disabled>Estado Civil</option>
+          <option value="Soltero">Soltero</option>
+          <option value="Casado">Casado</option>
+          <option value="Viudo">Viudo</option>
+        </select>
+      </div>
+      <div class="col-lg-4">
+          <div class="form-group">
+              <label class="label-control">Fecha de Nacimiento</label>
+              <input type="text" class="form-control datetimepicker" value="10/05/2016" formControlName="fecha_nacimiento"/>
+          </div>
+      </div>
+      <div class="col-lg-4">
+          <label style="margin: 0px;">CI</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="ci"
+          />
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Calle Particular</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="calle_particular"
+          />
+      </div>
+
+
+    </div>
+    <div class="row">
+
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Barrio</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="barrio"
+          />
+      </div>
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Día Pago</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="dia_pago"
+          />
+      </div>
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Saldo</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="saldo"
+          />
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Sexo</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="sexo"
+          />
+      </div>
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Zona</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="zona"
+          />
+      </div>
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Provincia</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="provincia"
+          />
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Ciudad</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="ciudad_id"
+          />
+      </div>
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Teléfono Fijo</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="telefono_fijo"
+          />
+      </div>
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Teléfono Celular</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="telefono_celular"
+          />
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="email"
+          />
+      </div>
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Nombre Referencia</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="nombre_referencia"
+          />
+      </div>
+
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Provincia Referencia</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="provincia_referencia"
+          />
+      </div>
+    </div>
+    <div class="row">
+
+
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Teléfono Referencia</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="telefono_referencia"
+          />
+      </div>
+
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Tipo Teléfono de Referencia</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="tipo_tel_referencia"
+          />
+      </div>
+
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Ciudad Referencia</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="ciudad_referencia"
+          />
+      </div>
+    </div>
+    <div class="row">
+
+
+      <div class="col-lg-4">
+          <label style="margin: 0px;">Estado</label>
+          <input
+            type="text"
+            class="form-control"
+            style="margin: 0px;"
+            formControlName="estado"
+          />
+      </div>
+    </div>
+    <div class="row">
+
+      <button type="submit" class="btn btn-fill btn-info">Editar</button>
+    </div>
+  </form>
