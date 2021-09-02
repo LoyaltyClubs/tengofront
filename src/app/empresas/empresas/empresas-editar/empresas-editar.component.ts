@@ -9,11 +9,23 @@ import { EmpresaService } from 'src/app/services/empresa.service';
 })
 export class EmpresasEditarComponent {
   formGroup: FormGroup = this.formBuilder.group({
-    nombre: ['', Validators.required],
-    razon_social: ['', Validators.required],
-    nit: ['', Validators.required],
-    representante_legal: ['', Validators.required],
-    estado: ['', Validators.required],
+      nombre: ['', Validators.required],
+      razon_social: ['', Validators.required],
+      nit: ['', Validators.required],
+      direccion: ['', Validators.required],
+      fecha_cierre: ['', Validators.required],
+      inicio_contrato: ['', Validators.required],
+      fin_contrato: ['', Validators.required],
+      representante_legal: ['', Validators.required],
+      email: ['', Validators.required],
+      cargo: ['', Validators.required],
+      ci: ['', Validators.required],
+      expedicion: ['', Validators.required],
+      telefono: ['', Validators.required],
+      rubro_id: ['', Validators.required],
+      ciudad_id: ['', Validators.required],
+      plan_id: ['', Validators.required],
+      estado: ['', Validators.required],
   });
 
   constructor(
