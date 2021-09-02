@@ -39,5 +39,7 @@ export type Plan = {
   seguro: number;
   mantenimiento: number;
   recargo: number;
+  interes: number;
+  mora: number;
   deleted: boolean;
 }
