@@ -14,6 +14,8 @@ export class PlanesEditarComponent implements OnInit {
       seguro: ['', Validators.required],
       mantenimiento: ['', Validators.required],
       recargo: ['', Validators.required],
+      interes: ['', Validators.required],
+      mora: ['', Validators.required],
       estado: ['', Validators.required],
   });
 
