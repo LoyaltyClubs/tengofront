@@ -12,15 +12,15 @@
         />
         <span class="material-input"></span>
       </div>
-      <button class="btn btn-primary" (click)="onChangeNews()">
+      <button class="btn btn-warning" (click)="onChangeNews()">
         <div class="ripple-container"></div>
         <i class="material-icons">search</i>
         <div class="ripple-container"></div>
       </button>
     </div>
 
-    <div class="card">
-      <div class="card-header card-header-tabs" data-background-color="rose">
+    <div class="card" *ngIf="cliente && cliente.id !== 0">
+      <div class="card-header card-header-tabs" data-background-color="blue">
         <div class="nav-tabs-navigation">
           <div class="nav-tabs-wrapper">
             <ul class="nav nav-tabs" data-tabs="tabs">
@@ -53,10 +53,10 @@
             <app-datos-cliente [formGroup]="formGroup"></app-datos-cliente>
           </div>
           <div class="tab-pane" id="messages">
-            <app-tarjeta-cliente></app-tarjeta-cliente>
+            <app-tarjeta-cliente [tarjetas]="tarjetas"></app-tarjeta-cliente>
           </div>
           <div class="tab-pane" id="settings">
-            <app-credito-cliente></app-credito-cliente>
+            <app-credito-cliente [creditos]="creditos"></app-credito-cliente>
           </div>
         </div>
       </div>

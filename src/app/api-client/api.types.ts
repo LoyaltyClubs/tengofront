@@ -69,3 +69,22 @@ export type Cliente = {
   readonly ciudad_referencia:  string
   readonly estado:  string
 }
+
+export type Tarjeta = {
+  id: number;
+  numero: string;
+  fecha_vencimiento: Date;
+  estado: number;
+  tipo_id: number;
+  deleted: boolean;
+}
+
+export type Credito = {
+  id: number;
+  descripcion: string;
+  fecha: Date;
+  estado: number;
+  nro_cuotas: number;
+  monto_financiado: number;
+  deleted: boolean;
+}
