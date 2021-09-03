@@ -16,6 +16,7 @@ export class EmpresaNuevoComponent implements OnInit {
     this.empresaForm = this.fb.group({
       nombre: ['', Validators.required],
       razon_social: ['', Validators.required],
+      nit: ['', Validators.required],
       direccion: ['', Validators.required],
       fecha_cierre: ['', Validators.required],
       inicio_contrato: ['', Validators.required],

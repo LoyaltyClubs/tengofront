@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Rubro } from 'src/app/api-client/api.types';
 import { RubroService } from 'src/app/api-client/rubro.service';
+import { EmpresaCiudad } from '../../../api-client/api.types';
 
 @Component({
   selector: 'app-listar-rubro',
@@ -51,14 +52,19 @@ export class ListarRubroComponent implements OnInit {
   }
 
   eliminarRubro(id: number) {
-    this.rubroService.delete(id).subscribe(
+    const RUBRO: EmpresaCiudad ={
+      id,
+      nombre: "sada",
+      estado: "false"
+    };
+    this.rubroService.delete(RUBRO).subscribe(
       (res) => {
         console.log(res)
       },
       (error) => {
         console.log(error);
       },
-      //() => {}
+      () => {}
     );
   }
 }
