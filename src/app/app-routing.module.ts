@@ -12,9 +12,12 @@ const routes: Routes = [
     path: 'empresa',
     loadChildren: () => import('./empresas/empresas.module').then((m) => m.EmpresasModule),
   },
+  {
+    path: 'cliente',
+    loadChildren: () => import('./cliente/cliente.module').then((m) => m.ClienteModule),
+  },
   //{ path: 'planes/plan', component: NuevoComponentPlanes},
   { path: '**', pathMatch: 'full', redirectTo: 'dashboard' },
-  
 
 ];
 

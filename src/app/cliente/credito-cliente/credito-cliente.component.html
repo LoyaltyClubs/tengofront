@@ -1,0 +1,33 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-content">
+            <div class="toolbar">
+            </div>
+            <div class="material-datatables">
+                <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Fecha</th>
+                            <th>Monto Financiado</th>
+                            <th>Número de cuotas</th>
+                            <th class="disabled-sorting text-right">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let credito of creditos">
+                            <td>{{credito.descripcion}}</td>
+                            <td>{{credito.fecha}}</td>
+                            <td style="text-align: center;">{{credito.monto_financiado}} Bs.</td>
+                            <td style="text-align: center;">{{credito.nro_cuotas}}</td>
+                            <td class="text-right">
+                                <a routerLink="editar" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
+                                <a routerLink="eliminar" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

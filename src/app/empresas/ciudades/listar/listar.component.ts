@@ -27,6 +27,7 @@ export class ListarComponent implements OnInit {
     this.ciudadService.getAll().subscribe(
       (res: EmpresaCiudad[]) => {
         this.ciudades = res;
+        console.log(res)
       },
       (error) => {
         console.log(error);
