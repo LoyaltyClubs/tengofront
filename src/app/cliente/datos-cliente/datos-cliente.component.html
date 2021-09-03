@@ -39,16 +39,16 @@
       <label class="label-control">Estado Civil</label>
 
       <select
-        class="selectpicker"
+        class="bootstrap-select"
         data-style="select-with-transition"
         title="Estado Civil"
-        data-size="7"
+        data-size="3"
         formControlName="estado_civil"
-        [attr.disabled]="editing === false ? true : null"
+        style="margin-top: 10px;"
       >
         <option disabled>Estado Civil</option>
-        <option value="Soltero">Soltero</option>
         <option value="Casado">Casado</option>
+        <option value="Soltero">Soltero</option>
         <option value="Viudo">Viudo</option>
       </select>
     </div>
@@ -123,13 +123,18 @@
 
     <div class="col-lg-4">
       <label style="margin: 0px">Sexo</label>
-      <input
-        type="text"
-        class="form-control"
-        style="margin: 0px"
-        formControlName="sexo"
-        [attr.disabled]="editing === false ? true : null"
-      />
+        <select
+          class="bootstrap-select"
+          data-style="select-with-transition"
+          title="Sexo"
+          data-size="3"
+          formControlName="sexo"
+          style="margin-top: 10px;"
+        >
+          <option disabled>Estado Civil</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+        </select>
     </div>
     <div class="col-lg-4">
       <label style="margin: 0px">Zona</label>
@@ -156,13 +161,27 @@
     </div>
 
     <div class="col-lg-4">
-      <input
-        type="text"
-        class="form-control"
-        style="margin: 0px"
-        formControlName="ciudad_id"
-        [attr.disabled]="editing === false ? true : null"
-      />
+        <label style="margin: 0px">Ciudad</label>
+
+        <select
+          class="bootstrap-select"
+          data-style="select-with-transition"
+          title="Ciudad"
+          data-size="3"
+          formControlName="ciudad_id"
+          style="margin-top: 10px;"
+        >
+          <option disabled>Ciudad</option>
+          <option value="0">Santa Cruz</option>
+          <option value="1">La Paz</option>
+          <option value="2">Cochabamba</option>
+          <option value="3">Tarija</option>
+          <option value="4">Chuquisaca</option>
+          <option value="5">Potosí</option>
+          <option value="6">Oruro</option>
+          <option value="7">Pando</option>
+          <option value="8">Beni</option>
+        </select>
     </div>
     <div class="col-lg-4">
       <label style="margin: 0px">Teléfono Fijo</label>
