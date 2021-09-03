@@ -7,7 +7,7 @@
                 <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Tarjetas</th>
+                            <th>ID</th>
                             <th>Válido hasta</th>
                             <th>Número</th>
                             <th>Estado</th>
@@ -16,7 +16,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let tarjeta of tarjetas">
-                            <td>{{tarjeta.numero}}</td>
+                            <td>{{tarjeta.id}}</td>
                             <td>{{tarjeta.fecha_vencimiento}}</td>
                             <td>{{tarjeta.numero}}</td>
                             <td>{{tarjeta.estado}}</td>
