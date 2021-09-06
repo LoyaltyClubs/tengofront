@@ -18,7 +18,7 @@ export type Empresa = {
   rubro_id: number
   direccion: string
   ciudad_id: number
-  fecha_cierre: Date
+  fecha_cierre: number
   inicio_contrato: Date
   fin_contrato: Date
   representante_legal: string
@@ -78,6 +78,7 @@ export type Tarjeta = {
   fecha_vencimiento: Date;
   estado: number;
   tipo_id: number;
+  saldo: number;
   deleted: boolean;
 }
 
