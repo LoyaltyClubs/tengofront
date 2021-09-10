@@ -11,7 +11,6 @@
                             <th>Válido hasta</th>
                             <th>Número</th>
                             <th>Estado</th>
-                            <th class="disabled-sorting text-right">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,10 +19,6 @@
                             <td>{{tarjeta.fecha_vencimiento}}</td>
                             <td>{{tarjeta.numero}}</td>
                             <td>{{tarjeta.estado}}</td>
-                            <td class="text-right">
-                                <a routerLink="editar" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
-                                <a routerLink="eliminar" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
-                            </td>
                         </tr>
                     </tbody>
                 </table>

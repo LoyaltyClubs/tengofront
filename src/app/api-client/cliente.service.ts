@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { Cliente, Credito, EmpresaCiudad, Tarjeta } from "./api.types"
+import { Cliente, Credito, Cuota, EmpresaCiudad, Tarjeta } from "./api.types"
 
 @Injectable({
   providedIn: "root",
@@ -23,6 +23,10 @@ export class ClienteService {
 
   getAllCredits(id: number): Observable<Credito[]> {
     return this.http.get<Credito[]>(`${this.basePath}credito/`);
+  }
+
+  getQuotes(creditId: number): Observable<Cuota[]> {
+    return this.http.get<Cuota[]>(`${this.basePath}cuotas/${creditId}`);
   }
 
   edit(cliente: Cliente): Observable<Cliente> {

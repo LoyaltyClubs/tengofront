@@ -18,7 +18,9 @@
       />
     </div>
     <div class="col-lg-4">
-      <label for="apellido_paterno" style="margin: 0px">Apellido Paterno(*)</label>
+      <label for="apellido_paterno" style="margin: 0px"
+        >Apellido Paterno(*)</label
+      >
       <input
         type="text"
         class="form-control"
@@ -29,7 +31,9 @@
       />
     </div>
     <div class="col-lg-4">
-      <label for="apellido_materno" style="margin: 0px">Apellido Materno(*)</label>
+      <label for="apellido_materno" style="margin: 0px"
+        >Apellido Materno(*)</label
+      >
       <input
         type="text"
         class="form-control"
@@ -200,7 +204,6 @@
   </div>
 
   <div class="row">
-
     <div class="col-lg-4">
       <label style="margin: 0px">Saldo</label>
       <input
@@ -299,14 +302,9 @@
     </div>
   </div>
   <div class="row">
-    <div
-    *ngIf=" editing &&
-      formGroup.invalid
-    "
-    class="alert alert-danger mb-0"
-  >
-    Complete todos los campos requeridos (*)
-  </div>
+    <div *ngIf="editing && formGroup.invalid" class="alert alert-danger mb-0">
+      Complete todos los campos requeridos (*)
+    </div>
 
     <button
       type="submit"

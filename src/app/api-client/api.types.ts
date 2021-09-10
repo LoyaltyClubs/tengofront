@@ -91,3 +91,13 @@ export type Credito = {
   monto_financiado: number;
   deleted: boolean;
 }
+
+export type Cuota = {
+  id: number;
+  descripcion: string;
+  fecha_limite: Date;
+  monto: number;
+  nro_de_cuota: number;
+  estado: string,
+  deleted: boolean;
+}
