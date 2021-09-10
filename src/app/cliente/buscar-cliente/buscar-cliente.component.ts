@@ -16,35 +16,8 @@ export class BuscarClienteComponent implements OnInit {
   tarjetas: Tarjeta[]
   creditos: Credito[]
   
-  formGroup: FormGroup = this.formBuilder.group({
-    nombre: ['', Validators.required],
-    apellido_paterno:  ['', Validators.required],
-    apellido_materno:  ['', Validators.required],
-    estado_civil:  ['', Validators.required],
-    fecha_nacimiento:  ['', Validators.required],
-    sexo:  ['', Validators.required],
-    ci:  ['', Validators.required],
-    calle_particular:  ['', Validators.required],
-    zona:  ['', Validators.required],
-    provincia:  ['', Validators.required],
-    barrio:  ['', Validators.required],
-    ciudad_id:  ['', Validators.required],
-    telefono_fijo:  ['', Validators.required],
-    telefono_celular:  ['', Validators.required],
-    email:  ['', Validators.required],
-    nombre_referencia:  ['', Validators.required],
-    provincia_referencia:  ['', Validators.required],
-    telefono_referencia:  ['', Validators.required],
-    tipo_tel_referencia:  ['', Validators.required],
-    ciudad_referencia:  ['', Validators.required],
-    dia_pago:  ['', Validators.required],
-    estado:  ['', Validators.required],
-
-    //extension:  ['', Validators.required],
-    //distrito:  ['', Validators.required],
-    saldo:  ['', Validators.required],
-  });
-
+  formGroup: FormGroup
+  
   constructor(
     private readonly clienteService: ClienteService,
     private router: Router,

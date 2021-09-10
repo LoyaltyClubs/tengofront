@@ -69,14 +69,14 @@ export type Cliente = {
   readonly telefono_referencia:  string
   readonly tipo_tel_referencia:  string
   readonly ciudad_referencia:  string
-  readonly estado:  string
+  estado:  string
 }
 
 export type Tarjeta = {
   id: number;
   numero: string;
   fecha_vencimiento: Date;
-  estado: number;
+  estado: string;
   tipo_id: number;
   saldo: number;
   deleted: boolean;
@@ -85,9 +85,23 @@ export type Tarjeta = {
 export type Credito = {
   id: number;
   descripcion: string;
+  secuencia: number,
   fecha: Date;
-  estado: number;
+  estado: string;
+  monto_capital: number,
   nro_cuotas: number;
-  monto_financiado: number;
+  monto_financiado: number,
+  fecha_primer_cuota: Date;
+  monto_cuota: number;
+  deleted: boolean;
+}
+
+export type Cuota = {
+  id: number;
+  descripcion: string;
+  fecha_limite: Date;
+  monto: number;
+  nro_de_cuota: number;
+  estado: string,
   deleted: boolean;
 }

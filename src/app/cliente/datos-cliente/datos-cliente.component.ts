@@ -15,6 +15,8 @@ import { ClienteService } from 'src/app/api-client/cliente.service';
 })
 export class DatosClienteComponent implements OnInit {
   @Input() formGroup: FormGroup;
+  cliente: Cliente
+
   textEditBtn: string;
   editing = false;
 
@@ -26,18 +28,78 @@ export class DatosClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = <FormGroup>this.controlContainer.control;
+    this.cliente = this.formGroup.value
+    this.setFormValidations()
     this.disableControls();
   }
 
-  editarCliente() {
-    this.editing ? this.actualizarCliente() : this.enableControls()
+  setFormValidations() {
+    this.formGroup.get('nombre')?.setValidators([Validators.required, Validators.minLength(3),])
+    this.formGroup.get('apellido_paterno')?.setValidators([Validators.required])
+    this.formGroup.get('apellido_materno')?.setValidators([Validators.required])
+    this.formGroup.get('estado_civil')?.setValidators([Validators.required])
+    this.formGroup.get('fecha_nacimiento')?.setValidators([Validators.required])
+    this.formGroup.get('sexo')?.setValidators([Validators.required])
+    this.formGroup.get('ci')?.setValidators([Validators.required])
+    this.formGroup.get('calle_particular')?.setValidators([Validators.required])
+    this.formGroup.get('zona')?.setValidators([Validators.required])
+    this.formGroup.get('provincia')?.setValidators([Validators.required])
+    this.formGroup.get('barrio')?.setValidators([Validators.required])
+    this.formGroup.get('ciudad_id')?.setValidators([Validators.required])
+    this.formGroup.get('telefono_fijo')?.setValidators([Validators.minLength(7), Validators.pattern('[1-9]{1}\\d+'),])
+    this.formGroup.get('telefono_celular')?.setValidators([Validators.required,
+      Validators.minLength(7),
+      Validators.pattern('[1-9]{1}\\d+'),])
+    this.formGroup.get('email')?.setValidators([Validators.required])
+    this.formGroup.get('parentesco_referencia')?.setValidators([Validators.required])
+    this.formGroup.get('nombre_referencia')?.setValidators([Validators.required])
+    this.formGroup.get('provincia_referencia')?.setValidators([Validators.required])
+    this.formGroup.get('telefono_referencia')?.setValidators([Validators.required])
+    this.formGroup.get('tipo_tel_referencia')?.setValidators([Validators.required])
+    this.formGroup.get('ciudad_referencia')?.setValidators([Validators.required])
+    this.formGroup.get('dia_pago')?.setValidators([Validators.required])
+    this.formGroup.get('estado')?.setValidators([Validators.required])
+    this.formGroup.get('saldo')?.setValidators([Validators.required])
+
+    this.formGroup.markAllAsTouched()
+    this.formGroup.updateValueAndValidity()
   }
 
-  actualizarCliente() {
-    this.clienteService.edit(this.formGroup.value).subscribe(
+  submit() {
+    this.editing ? this.editarCliente() : this.enableControls()
+  }
+
+  editarCliente() {
+    console.log(this.formGroup.invalid)
+
+    if (this.formGroup.invalid) {
+      console.log('invalid')
+      return
+    }
+
+    this.actualizarCliente(this.formGroup.value)
+  }
+
+  bloquearCliente() {
+    if(this.cliente.estado === 'Bloqueado'){
+      this.cliente.estado = 'Desbloqueado'
+      this.formGroup.get('estado')?.setValue('Desbloqueado')
+      this.actualizarCliente(this.cliente)
+      return
+    } 
+
+    if(this.cliente.estado === 'Desbloqueado'){
+      this.cliente.estado = 'Bloqueado'
+      this.formGroup.get('estado')?.setValue('Bloqueado')
+      this.actualizarCliente(this.cliente)
+    }
+  }
+
+  actualizarCliente(cliente:any) {
+    console.log(this.cliente);
+
+    this.clienteService.edit(cliente).subscribe(
       (res: Cliente) => {
-        this.formGroup = this.formBuilder.group(res);
-        console.log(res);
         this.disableControls();
       },
       (error) => {
@@ -56,4 +118,5 @@ export class DatosClienteComponent implements OnInit {
     this.textEditBtn = 'Guardar';
     this.editing = true
   }
+
 }
