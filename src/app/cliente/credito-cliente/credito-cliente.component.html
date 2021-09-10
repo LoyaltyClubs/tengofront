@@ -21,11 +21,11 @@
                     <tbody>
                         <tr *ngFor="let credito of creditos">
                             <td>{{credito.descripcion}}</td>
-                            <td>{{credito.fecha | date: 'shortDate'}}</td>
+                            <td>{{credito.fecha}}</td>
                             <td style="text-align: center;">{{credito.monto_capital}} Bs.</td>
                             <td style="text-align: center;">{{credito.monto_financiado}} Bs.</td>
                             <td style="text-align: center;">{{credito.monto_cuota}} Bs.</td>
-                            <td>{{credito.fecha_primer_cuota | date: 'shortDate'}}</td>
+                            <td>{{credito.fecha_primer_cuota}}</td>
                             <td style="text-align: center;">{{credito.nro_cuotas}}</td>
                             <td>{{credito.secuencia}}</td>
                             <td style="text-align: right;">
@@ -62,7 +62,7 @@
                             <td>{{cuota.nro_de_cuota}}</td>
                             <td>{{cuota.descripcion}}</td>
                             <td>{{cuota.monto}} Bs.</td>
-                            <td>{{cuota.fecha_limite | date: 'shortDate'}}</td>
+                            <td>{{cuota.fecha_limite}}</td>
                             <td>{{cuota.estado}}</td>
                         </tr>
                     </tbody>
