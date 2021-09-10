@@ -1,7 +1,9 @@
 <form [formGroup]="formGroup" (ngSubmit)="editarCliente()">
+  <h3 style="color: darkturquoise">Datos Personales</h3>
+
   <div class="row">
     <div class="col-lg-4">
-      <label for="nombre" style="margin: 0px">Nombre</label>
+      <label for="nombre" style="margin: 0px">Nombre(*)</label>
       <input
         type="text"
         class="form-control"
@@ -9,10 +11,14 @@
         id="nombre"
         formControlName="nombre"
         [attr.disabled]="editing === false ? true : null"
+        [ngClass]="{
+          'form-control border border-dark': true,
+          'is-invalid': isInvalid('nombre')
+        }"
       />
     </div>
     <div class="col-lg-4">
-      <label for="apellido_paterno" style="margin: 0px">Apellido Paterno</label>
+      <label for="apellido_paterno" style="margin: 0px">Apellido Paterno(*)</label>
       <input
         type="text"
         class="form-control"
@@ -23,7 +29,7 @@
       />
     </div>
     <div class="col-lg-4">
-      <label for="apellido_materno" style="margin: 0px">Apellido Materno</label>
+      <label for="apellido_materno" style="margin: 0px">Apellido Materno(*)</label>
       <input
         type="text"
         class="form-control"
@@ -36,25 +42,8 @@
   </div>
   <div class="row">
     <div class="col-lg-4">
-      <label class="label-control">Estado Civil</label>
-
-      <select
-        class="bootstrap-select"
-        data-style="select-with-transition"
-        title="Estado Civil"
-        data-size="3"
-        formControlName="estado_civil"
-        style="margin-top: 10px;"
-      >
-        <option disabled>Estado Civil</option>
-        <option value="Casado">Casado</option>
-        <option value="Soltero">Soltero</option>
-        <option value="Viudo">Viudo</option>
-      </select>
-    </div>
-    <div class="col-lg-4">
       <div class="form-group">
-        <label class="label-control">Fecha de Nacimiento</label>
+        <label class="label-control">Fecha de Nacimiento(*)</label>
         <input
           type="text"
           class="form-control datetimepicker"
@@ -65,7 +54,7 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <label style="margin: 0px">CI</label>
+      <label style="margin: 0px">CI(*)</label>
       <input
         type="text"
         class="form-control"
@@ -74,113 +63,48 @@
         [attr.disabled]="editing === false ? true : null"
       />
     </div>
-  </div>
-  <div class="row">
     <div class="col-lg-4">
-      <label style="margin: 0px">Calle Particular</label>
-      <input
-        type="text"
-        class="form-control"
-        style="margin: 0px"
-        formControlName="calle_particular"
-        [attr.disabled]="editing === false ? true : null"
-      />
-    </div>
-
-    <div class="col-lg-4">
-      <label style="margin: 0px">Barrio</label>
-      <input
-        type="text"
-        class="form-control"
-        style="margin: 0px"
-        formControlName="barrio"
-        [attr.disabled]="editing === false ? true : null"
-      />
-    </div>
-    <div class="col-lg-4">
-      <label style="margin: 0px">Día Pago</label>
-      <input
-        type="text"
-        class="form-control"
-        style="margin: 0px"
-        formControlName="dia_pago"
-        [attr.disabled]="editing === false ? true : null"
-      />
+      <label class="label-control">Estado Civil(*)</label>
+      <select
+        class="bootstrap-select"
+        data-style="select-with-transition"
+        title="Estado Civil"
+        data-size="3"
+        formControlName="estado_civil"
+        style="margin-top: 10px"
+      >
+        <option disabled>Estado Civil</option>
+        <option value="Casado">Casado</option>
+        <option value="Soltero">Soltero</option>
+        <option value="Viudo">Viudo</option>
+      </select>
     </div>
   </div>
-
   <div class="row">
-    <div class="col-lg-4">
-      <label style="margin: 0px">Saldo</label>
-      <input
-        type="text"
-        class="form-control"
-        style="margin: 0px"
-        [attr.disabled]="editing === false ? true : null"
-      />
-    </div>
-
     <div class="col-lg-4">
       <label style="margin: 0px">Sexo</label>
-        <select
-          class="bootstrap-select"
-          data-style="select-with-transition"
-          title="Sexo"
-          data-size="3"
-          formControlName="sexo"
-          style="margin-top: 10px;"
-        >
-          <option disabled>Estado Civil</option>
-          <option value="Femenino">Femenino</option>
-          <option value="Masculino">Masculino</option>
-        </select>
+      <select
+        class="bootstrap-select"
+        data-style="select-with-transition"
+        title="Sexo"
+        data-size="3"
+        formControlName="sexo"
+        style="margin-top: 10px"
+      >
+        <option disabled>Sexo</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Masculino">Masculino</option>
+      </select>
     </div>
     <div class="col-lg-4">
-      <label style="margin: 0px">Zona</label>
+      <label style="margin: 0px">Teléfono Celular(*)</label>
       <input
         type="text"
         class="form-control"
         style="margin: 0px"
-        formControlName="zona"
+        formControlName="telefono_celular"
         [attr.disabled]="editing === false ? true : null"
       />
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-4">
-      <label style="margin: 0px">Provincia</label>
-      <input
-        type="text"
-        class="form-control"
-        style="margin: 0px"
-        formControlName="provincia"
-        [attr.disabled]="editing === false ? true : null"
-      />
-    </div>
-
-    <div class="col-lg-4">
-        <label style="margin: 0px">Ciudad</label>
-
-        <select
-          class="bootstrap-select"
-          data-style="select-with-transition"
-          title="Ciudad"
-          data-size="3"
-          formControlName="ciudad_id"
-          style="margin-top: 10px;"
-        >
-          <option disabled>Ciudad</option>
-          <option value="5">Santa Cruz</option>
-          <option value="15">La Paz</option>
-          <option value="25">Cochabamba</option>
-          <option value="35">Tarija</option>
-          <option value="45">Chuquisaca</option>
-          <option value="55">Potosí</option>
-          <option value="65">Oruro</option>
-          <option value="75">Pando</option>
-          <option value="85">Beni</option>
-        </select>
     </div>
     <div class="col-lg-4">
       <label style="margin: 0px">Teléfono Fijo</label>
@@ -196,18 +120,75 @@
 
   <div class="row">
     <div class="col-lg-4">
-      <label style="margin: 0px">Teléfono Celular</label>
+      <label style="margin: 0px">Calle Particular(*)</label>
       <input
         type="text"
         class="form-control"
         style="margin: 0px"
-        formControlName="telefono_celular"
+        formControlName="calle_particular"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+    <div class="col-lg-4">
+      <label style="margin: 0px">Barrio(*)</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="barrio"
         [attr.disabled]="editing === false ? true : null"
       />
     </div>
 
     <div class="col-lg-4">
-      <label style="margin: 0px">Email</label>
+      <label style="margin: 0px">Zona(*)</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="zona"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <label style="margin: 0px">Provincia(*)</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="provincia"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+
+    <div class="col-lg-4">
+      <label style="margin: 0px">Ciudad(*)</label>
+
+      <select
+        class="bootstrap-select"
+        data-style="select-with-transition"
+        title="Ciudad"
+        data-size="3"
+        formControlName="ciudad_id"
+        style="margin-top: 10px"
+      >
+        <option disabled>Ciudad</option>
+        <option value="5">Santa Cruz</option>
+        <option value="15">La Paz</option>
+        <option value="25">Cochabamba</option>
+        <option value="35">Tarija</option>
+        <option value="45">Chuquisaca</option>
+        <option value="55">Potosí</option>
+        <option value="65">Oruro</option>
+        <option value="75">Pando</option>
+        <option value="85">Beni</option>
+      </select>
+    </div>
+    <div class="col-lg-4">
+      <label style="margin: 0px">Email(*)</label>
       <input
         type="text"
         class="form-control"
@@ -216,66 +197,29 @@
         [attr.disabled]="editing === false ? true : null"
       />
     </div>
-
-    <div class="col-lg-4">
-      <label style="margin: 0px">Nombre Referencia</label>
-      <input
-        type="text"
-        class="form-control"
-        style="margin: 0px"
-        formControlName="nombre_referencia"
-        [attr.disabled]="editing === false ? true : null"
-      />
-    </div>
   </div>
 
   <div class="row">
+
     <div class="col-lg-4">
-      <label style="margin: 0px">Provincia Referencia</label>
+      <label style="margin: 0px">Saldo</label>
       <input
         type="text"
         class="form-control"
         style="margin: 0px"
-        formControlName="provincia_referencia"
         [attr.disabled]="editing === false ? true : null"
       />
     </div>
-
     <div class="col-lg-4">
-      <label style="margin: 0px">Teléfono Referencia</label>
+      <label style="margin: 0px">Día Pago</label>
       <input
         type="text"
         class="form-control"
         style="margin: 0px"
-        formControlName="telefono_referencia"
+        formControlName="dia_pago"
         [attr.disabled]="editing === false ? true : null"
       />
     </div>
-
-    <div class="col-lg-4">
-      <label style="margin: 0px">Tipo Teléfono de Referencia</label>
-      <input
-        type="text"
-        class="form-control"
-        style="margin: 0px"
-        formControlName="tipo_tel_referencia"
-        [attr.disabled]="editing === false ? true : null"
-      />
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-4">
-      <label style="margin: 0px">Ciudad Referencia</label>
-      <input
-        type="text"
-        class="form-control"
-        style="margin: 0px"
-        formControlName="ciudad_referencia"
-        [attr.disabled]="editing === false ? true : null"
-      />
-    </div>
-
     <div class="col-lg-4">
       <label style="margin: 0px">Estado</label>
       <input
@@ -287,7 +231,83 @@
       />
     </div>
   </div>
+
+  <h3 style="color: darkturquoise">Referencia</h3>
   <div class="row">
+    <div class="col-lg-4">
+      <label style="margin: 0px">Parentesco Referencia(*)</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="parentesco_referencia"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+    <div class="col-lg-4">
+      <label style="margin: 0px">Nombre Referencia(*)</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="nombre_referencia"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+    <div class="col-lg-4">
+      <label style="margin: 0px">Ciudad Referencia(*)</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="ciudad_referencia"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <label style="margin: 0px">Provincia Referencia(*)</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="provincia_referencia"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+    <div class="col-lg-4">
+      <label style="margin: 0px">Teléfono Referencia(*)</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="telefono_referencia"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+
+    <div class="col-lg-4">
+      <label style="margin: 0px">Tipo Teléfono de Referencia(*)</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="tipo_tel_referencia"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div
+    *ngIf=" editing &&
+      formGroup.invalid
+    "
+    class="alert alert-danger mb-0"
+  >
+    Complete todos los campos requeridos (*)
+  </div>
+
     <button
       type="submit"
       class="btn btn-fill btn-info"
