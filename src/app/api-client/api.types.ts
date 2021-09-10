@@ -85,10 +85,14 @@ export type Tarjeta = {
 export type Credito = {
   id: number;
   descripcion: string;
+  secuencia: number,
   fecha: Date;
-  estado: number;
+  estado: string;
+  monto_capital: number,
   nro_cuotas: number;
-  monto_financiado: number;
+  monto_financiado: number,
+  fecha_primer_cuota: Date;
+  monto_cuota: number;
   deleted: boolean;
 }
 
