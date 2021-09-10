@@ -69,14 +69,14 @@ export type Cliente = {
   readonly telefono_referencia:  string
   readonly tipo_tel_referencia:  string
   readonly ciudad_referencia:  string
-  readonly estado:  string
+  estado:  string
 }
 
 export type Tarjeta = {
   id: number;
   numero: string;
   fecha_vencimiento: Date;
-  estado: number;
+  estado: string;
   tipo_id: number;
   saldo: number;
   deleted: boolean;

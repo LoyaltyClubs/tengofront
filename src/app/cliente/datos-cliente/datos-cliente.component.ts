@@ -15,6 +15,8 @@ import { ClienteService } from 'src/app/api-client/cliente.service';
 })
 export class DatosClienteComponent implements OnInit {
   @Input() formGroup: FormGroup;
+  cliente: Cliente
+
   textEditBtn: string;
   editing = false;
 
@@ -26,6 +28,7 @@ export class DatosClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = <FormGroup>this.controlContainer.control;
+    this.cliente = this.formGroup.value
     this.setFormValidations()
     this.disableControls();
   }
@@ -62,21 +65,41 @@ export class DatosClienteComponent implements OnInit {
     this.formGroup.updateValueAndValidity()
   }
 
-  editarCliente() {
-    this.editing ? this.actualizarCliente() : this.enableControls()
+  submit() {
+    this.editing ? this.editarCliente() : this.enableControls()
   }
 
-  actualizarCliente() {
+  editarCliente() {
     console.log(this.formGroup.invalid)
 
     if (this.formGroup.invalid) {
       console.log('invalid')
       return
     }
-    this.clienteService.edit(this.formGroup.value).subscribe(
+
+    this.actualizarCliente(this.formGroup.value)
+  }
+
+  bloquearCliente() {
+    if(this.cliente.estado === 'Bloqueado'){
+      this.cliente.estado = 'Desbloqueado'
+      this.formGroup.get('estado')?.setValue('Desbloqueado')
+      this.actualizarCliente(this.cliente)
+      return
+    } 
+
+    if(this.cliente.estado === 'Desbloqueado'){
+      this.cliente.estado = 'Bloqueado'
+      this.formGroup.get('estado')?.setValue('Bloqueado')
+      this.actualizarCliente(this.cliente)
+    }
+  }
+
+  actualizarCliente(cliente:any) {
+    console.log(this.cliente);
+
+    this.clienteService.edit(cliente).subscribe(
       (res: Cliente) => {
-        this.formGroup = this.formBuilder.group(res);
-        console.log(res);
         this.disableControls();
       },
       (error) => {
@@ -96,8 +119,4 @@ export class DatosClienteComponent implements OnInit {
     this.editing = true
   }
 
-  isInvalid(inputName: string): boolean {
-    const control = this.formGroup.controls[inputName]
-    return control.errors != null && control.touched
-  }
 }

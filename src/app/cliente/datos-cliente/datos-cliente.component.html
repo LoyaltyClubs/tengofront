@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup" (ngSubmit)="editarCliente()">
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
   <h3 style="color: darkturquoise">Datos Personales</h3>
 
   <div class="row">
@@ -11,10 +11,6 @@
         id="nombre"
         formControlName="nombre"
         [attr.disabled]="editing === false ? true : null"
-        [ngClass]="{
-          'form-control border border-dark': true,
-          'is-invalid': isInvalid('nombre')
-        }"
       />
     </div>
     <div class="col-lg-4">
@@ -230,7 +226,7 @@
         class="form-control"
         style="margin: 0px"
         formControlName="estado"
-        [attr.disabled]="editing === false ? true : null"
+        [attr.disabled]="true"
       />
     </div>
   </div>
@@ -305,11 +301,19 @@
     <div *ngIf="editing && formGroup.invalid" class="alert alert-danger mb-0">
       Complete todos los campos requeridos (*)
     </div>
-
+    <button
+      type="button"
+      class="btn btn-fill btn-danger"
+      style="float: right; margin-right: 25px"
+      (click)="bloquearCliente()"
+    >
+      {{ cliente.estado === 'Bloqueado' ? 'Desbloquear Cliente' : 'Bloquear Cliente' }}
+    </button>
     <button
       type="submit"
       class="btn btn-fill btn-info"
       style="float: right; margin-right: 25px"
+      *ngIf="cliente.estado === 'Desbloqueado'"
     >
       {{ textEditBtn }}
     </button>

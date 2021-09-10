@@ -22,7 +22,7 @@ export class ClienteService {
   }
 
   getAllCredits(id: number): Observable<Credito[]> {
-    return this.http.get<Credito[]>(`${this.basePath}credito/`);
+    return this.http.get<Credito[]>(`${this.basePath}credito/${id}`);
   }
 
   getQuotes(creditId: number): Observable<Cuota[]> {
@@ -31,5 +31,9 @@ export class ClienteService {
 
   edit(cliente: Cliente): Observable<Cliente> {
     return this.http.put<Cliente>(`${this.basePath}cliente/update/${cliente.id}`, cliente);
+  }
+
+  updateCard(tarjeta: Tarjeta): Observable<Tarjeta> {
+    return this.http.put<Tarjeta>(`${this.basePath}tarjeta/update/${tarjeta.id}`, tarjeta);
   }
 }
