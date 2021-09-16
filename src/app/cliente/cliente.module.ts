@@ -8,13 +8,15 @@ import { ApiClientModule } from '../api-client/api-client.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteRoutingModule } from './cliente-routing.module';
+import { ClienteCargarComponent } from './cliente-cargar/cliente-cargar.component';
 
 @NgModule({
   declarations: [
     BuscarClienteComponent,
     DatosClienteComponent,
     TarjetaClienteComponent,
-    CreditoClienteComponent
+    CreditoClienteComponent,
+    ClienteCargarComponent
   ],
   imports: [
     CommonModule,
