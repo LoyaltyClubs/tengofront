@@ -78,6 +78,12 @@
                             </a>
                         </li>
                         <li>
+                            <a routerLink="empresa/cargar">
+                                <span class="sidebar-mini"> CE </span>
+                                <span class="sidebar-normal"> Cargar Empresas </span>
+                            </a>
+                        </li>
+                        <li>
                             <a [routerLink]="[ 'empresa/rubros' ]">
                                 <span class="sidebar-mini"> RB </span>
                                 <span class="sidebar-normal"> Rubro </span>
@@ -122,7 +128,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="./pages/timeline.html">
+                            <a [routerLink]="[ '/cliente/cargar' ]">
                                 <span class="sidebar-mini"> CC </span>
                                 <span class="sidebar-normal"> Carga Clientes </span>
                             </a>

@@ -17,6 +17,7 @@ import { EmpresasEditarComponent } from './empresas/empresas-editar/empresas-edi
 import { PlanesEditarComponent } from './planes/planes-editar/planes-editar.component';
 import { EmpresaNuevoComponent } from './empresa-nuevo/empresa-nuevo.component';
 import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
+import { EmpresaCargarComponent } from './empresa-cargar/empresa-cargar.component';
 
 
 
@@ -37,7 +38,8 @@ import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
     PlanesEditarComponent,
     EmpresasEditarComponent,
     EmpresaNuevoComponent,
-    EmpresaIndexComponent
+    EmpresaIndexComponent,
+    EmpresaCargarComponent
   ],
   imports: [
     CommonModule,
