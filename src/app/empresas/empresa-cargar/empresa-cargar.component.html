@@ -9,7 +9,7 @@
             <a class="btn btn-info" href="">Descargar Plantilla Excel</a>
             <form [formGroup]="empresaForm" (ngSubmit)="agregarEmpresas()">
                 <label for="archivo" class="control-label">Subir Archivo Excel</label>
-                <input type="file" formControlName="archivo" id="archivo" class="form-control-file">
+                <input type="file" formControlName="archivo" id="archivo" class="form-control-file" (change)="onFileChange($event)">
                 <button type="submit" class="btn btn-fill btn-info">Enviar</button>
             </form>
 
