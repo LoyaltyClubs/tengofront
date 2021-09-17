@@ -37,7 +37,10 @@ export class ClienteService {
     return this.http.put<Tarjeta>(`${this.basePath}tarjeta/update/${tarjeta.id}`, tarjeta);
   }
 
-  agregarClientes():  Observable<Cliente[]> {
-    return this.http.post<Cliente[]>(`${this.basePath}carga_archivos/uploads/`,"");
+  agregarClientes(file: File, esCliente: string):  Observable<Cliente[]> {
+    const adjunt = new FormData()
+    adjunt.append('archivo', file)
+    adjunt.append('esCliente', esCliente)
+    return this.http.post<Cliente[]>(`${this.basePath}carga_archivos/uploads/`, adjunt);
   }
 }
