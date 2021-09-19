@@ -19,6 +19,8 @@ import { EmpresaNuevoComponent } from './empresa-nuevo/empresa-nuevo.component';
 import { EmpresaIndexComponent } from './empresa_index/empresa_index.component';
 import { EmpresaCargarComponent } from './empresa-cargar/empresa-cargar.component';
 import { ListarProvinciasComponent } from './provincias/listar-provincias/listar-provincias.component';
+import { NuevaProvinciaComponent } from './provincias/nueva-provincia/nueva-provincia.component';
+import { EditarProvinciaComponent } from './provincias/editar-provincia/editar-provincia.component';
 
 
 
@@ -41,7 +43,9 @@ import { ListarProvinciasComponent } from './provincias/listar-provincias/listar
     EmpresaNuevoComponent,
     EmpresaIndexComponent,
     EmpresaCargarComponent,
-    ListarProvinciasComponent
+    ListarProvinciasComponent,
+    NuevaProvinciaComponent,
+    EditarProvinciaComponent
   ],
   imports: [
     CommonModule,

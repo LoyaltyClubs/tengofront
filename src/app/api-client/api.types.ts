@@ -105,3 +105,10 @@ export type Cuota = {
   estado: string,
   deleted: boolean;
 }
+
+export type Provincia = {
+  readonly id: number
+  readonly nombre: string
+  readonly ciudadId: number
+  readonly estado: string
+}
