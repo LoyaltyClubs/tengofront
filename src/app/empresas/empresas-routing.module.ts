@@ -13,6 +13,7 @@ import { EmpresasEditarComponent } from './empresas/empresas-editar/empresas-edi
 import { PlanesEditarComponent } from './planes/planes-editar/planes-editar.component';
 import { EmpresaNuevoComponent } from './empresa-nuevo/empresa-nuevo.component';
 import { EmpresaCargarComponent } from './empresa-cargar/empresa-cargar.component';
+import { ListarProvinciasComponent } from './provincias/listar-provincias/listar-provincias.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
   {
     path: 'rubros/editar',
     component: RubrosEditarComponent
+  },
+    {
+    path: 'provincias',
+    component: ListarProvinciasComponent
   },
 ]
 
