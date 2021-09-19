@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProvinciaService } from 'src/app/api-client/provincia.service';
 
 @Component({
   selector: 'app-editar-provincia',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditarProvinciaComponent implements OnInit {
 
-  constructor() { }
+  formGroup: FormGroup = this.formBuilder.group({
+    nombre: ['', Validators.required],
+    estado: ['', Validators.required],
+  });
 
-  ngOnInit(): void {
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private provinciaService: ProvinciaService,
+    private activatedroute: ActivatedRoute
+  ) {
+    this.activatedroute.queryParams.subscribe((data) => {
+      this.formGroup = this.formBuilder.group(data)
+    });
   }
 
+  ngOnInit(): void {}
+
+  editarProvincia() {
+    this.provinciaService.edit(this.formGroup.value).subscribe(
+      (res) => {
+        console.log(res);
+        this.router.navigate(['/empresa/provincias']);
+      },
+      (error) => {
+        console.log(error);
+        this.formGroup.reset();
+      }
+    );
+  }
 }
