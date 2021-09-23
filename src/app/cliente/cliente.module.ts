@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteRoutingModule } from './cliente-routing.module';
 import { ClienteCargarComponent } from './cliente-cargar/cliente-cargar.component';
+import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ClienteCargarComponent } from './cliente-cargar/cliente-cargar.componen
     DatosClienteComponent,
     TarjetaClienteComponent,
     CreditoClienteComponent,
-    ClienteCargarComponent
+    ClienteCargarComponent,
+    ListaClientesComponent
   ],
   imports: [
     CommonModule,

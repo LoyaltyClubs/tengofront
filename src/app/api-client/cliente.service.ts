@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { Cliente, Credito, Cuota, EmpresaCiudad, Tarjeta } from "./api.types"
+import { Cliente, Credito, Cuota, Tarjeta } from "./api.types"
 
 @Injectable({
   providedIn: "root",
@@ -12,6 +12,10 @@ export class ClienteService {
   constructor(
     private readonly http: HttpClient,
   ) {}
+
+  getAll(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${this.basePath}cliente/`);
+  }
 
   getBy(id: number): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(`${this.basePath}cliente/${id}`);

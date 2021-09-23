@@ -1,0 +1,47 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-icon" data-background-color="blue">
+            <i class="material-icons">mail_outline</i>
+        </div>
+
+        <div class="card-content">
+            <h4 class="card-title">Provincia</h4>
+            <form [formGroup]="formGroup" (ngSubmit)="agregarProvincia()">
+                <div class="form-group label-floating">
+                    <label class="control-label">Nombre</label>
+                    <input type="text" formControlName="nombre" class="form-control">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" formControlName="estado" name="estado">
+                        Estado
+                    </label>
+                </div>
+                <div class="col">
+                    <label style="margin: 0px">Ciudad(*)</label>
+                    <select
+                      class="bootstrap-select"
+                      data-style="select-with-transition"
+                      title="Ciudad"
+                      data-size="3"
+                      formControlName="ciudad_id"
+                      style="margin-top: 10px"
+                    >
+                      <option disabled>Ciudad</option>
+                      <option value="5">Santa Cruz</option>
+                      <option value="15">La Paz</option>
+                      <option value="25">Cochabamba</option>
+                      <option value="35">Tarija</option>
+                      <option value="45">Chuquisaca</option>
+                      <option value="55">Potosí</option>
+                      <option value="65">Oruro</option>
+                      <option value="75">Pando</option>
+                      <option value="85">Beni</option>
+                    </select>
+                  </div>
+                <button class="btn btn-fill btn-default" routerLink="/empresa/provincias">Volver</button>
+                <button type="submit" class="btn btn-fill btn-info">Enviar</button>
+            </form>
+        </div>
+    </div>
+</div>
