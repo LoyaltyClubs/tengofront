@@ -29,6 +29,9 @@
                     <tbody>
                         <tr *ngFor="let provincia of provincias">
                             <td>{{provincia.nombre}}</td>
+                            <td>
+                              {{provincia.ciudad}}
+                            </td>
                             <td class="text-right">
                                 <a routerLink="editar"  [queryParams]="provincia" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
                                 <a (click)="openDeleteModal(provincia.id)" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>

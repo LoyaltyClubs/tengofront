@@ -11,7 +11,7 @@ import { ProvinciaService } from 'src/app/api-client/provincia.service';
 export class NuevaProvinciaComponent implements OnInit {
   formGroup: FormGroup = this.formBuilder.group({
     nombre: ['', Validators.required],
-    ciudadId: ['', Validators.required],
+    ciudad_id: ['', Validators.required],
     estado: ['', Validators.required],
   });
 

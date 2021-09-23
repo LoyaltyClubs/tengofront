@@ -64,6 +64,7 @@ export class BuscarClienteComponent implements OnInit {
        telefono_referencia:  '',
        tipo_tel_referencia:  '',
        ciudad_referencia:  '',
+       linea_credito:  0,
        estado:  '',
     }
   }

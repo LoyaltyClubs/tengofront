@@ -7,7 +7,7 @@ import { Provincia } from "./api.types";
   providedIn: "root",
 })
 export class ProvinciaService {
-  private basePath = `https://tengoapp.herokuapp.com/api/provincias/`
+  private basePath = `https://tengoapp.herokuapp.com/api/provincia/`
 
   constructor(
     private readonly http: HttpClient,

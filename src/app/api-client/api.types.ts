@@ -70,6 +70,7 @@ export type Cliente = {
   readonly tipo_tel_referencia:  string
   readonly ciudad_referencia:  string
   estado:  string
+  readonly linea_credito: number
 }
 
 export type Tarjeta = {
@@ -109,6 +110,7 @@ export type Cuota = {
 export type Provincia = {
   readonly id: number
   readonly nombre: string
-  readonly ciudadId: number
+  readonly ciudad: string
+  readonly ciudad_id: number
   readonly estado: string
 }

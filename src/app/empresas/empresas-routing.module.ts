@@ -14,6 +14,8 @@ import { PlanesEditarComponent } from './planes/planes-editar/planes-editar.comp
 import { EmpresaNuevoComponent } from './empresa-nuevo/empresa-nuevo.component';
 import { EmpresaCargarComponent } from './empresa-cargar/empresa-cargar.component';
 import { ListarProvinciasComponent } from './provincias/listar-provincias/listar-provincias.component';
+import { NuevaProvinciaComponent } from './provincias/nueva-provincia/nueva-provincia.component';
+import { EditarProvinciaComponent } from './provincias/editar-provincia/editar-provincia.component';
 
 const routes: Routes = [
   {
@@ -75,6 +77,14 @@ const routes: Routes = [
     {
     path: 'provincias',
     component: ListarProvinciasComponent
+  },
+  {
+    path: 'provincias/nuevo',
+    component: NuevaProvinciaComponent
+  },
+  {
+    path: 'provincias/editar',
+    component: EditarProvinciaComponent
   },
 ]
 

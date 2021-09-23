@@ -12,6 +12,7 @@ export class EditarProvinciaComponent implements OnInit {
 
   formGroup: FormGroup = this.formBuilder.group({
     nombre: ['', Validators.required],
+    ciudad_id: ['', Validators.required],
     estado: ['', Validators.required],
   });
 
