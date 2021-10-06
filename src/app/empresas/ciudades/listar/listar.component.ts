@@ -37,18 +37,17 @@ export class ListarComponent implements OnInit {
   }
 
   openDeleteModal(id: number) {
-    this.eliminarCiudad(id)
-    /*this.modalService
+    this.modalService
       .open(this.deleteModal, {
         backdrop: 'static',
         keyboard: false,
       })
       .result.then(
         (_) => {
-          //eliminar
+          this.eliminarCiudad(id)
         },
         (_) => {}
-      )*/
+      )
   }
 
   eliminarCiudad(id: number) {

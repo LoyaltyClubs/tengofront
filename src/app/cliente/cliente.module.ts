@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteRoutingModule } from './cliente-routing.module';
 import { ClienteCargarComponent } from './cliente-cargar/cliente-cargar.component';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+import { PagosClienteComponent } from './pagos-cliente/pagos-cliente.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ListaClientesComponent } from './lista-clientes/lista-clientes.componen
     TarjetaClienteComponent,
     CreditoClienteComponent,
     ClienteCargarComponent,
-    ListaClientesComponent
+    ListaClientesComponent,
+    PagosClienteComponent
   ],
   imports: [
     CommonModule,

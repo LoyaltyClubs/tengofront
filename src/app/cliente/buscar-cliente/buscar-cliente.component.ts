@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cliente, Credito, Tarjeta } from 'src/app/api-client/api.types';
+import { Cliente, Credito, Pago, Tarjeta } from 'src/app/api-client/api.types';
 import { ClienteService } from 'src/app/api-client/cliente.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class BuscarClienteComponent implements OnInit {
   newsFilter: any
   tarjetas: Tarjeta[]
   creditos: Credito[]
-  
+  pagos: Pago[]
+
   formGroup: FormGroup
   
   constructor(
@@ -31,7 +32,7 @@ export class BuscarClienteComponent implements OnInit {
         this.newsFilter = {
           ci: params['ci'],
         };
-
+        this.dataSearch = params['ci']
         console.log(params['ci'])
       }
       this.loadFromQueryParams();
@@ -96,6 +97,7 @@ export class BuscarClienteComponent implements OnInit {
         console.log(this.cliente)
         this.obtenerTarjetas()
         this.obtenerCreditos()
+        this.obtenerPagos()
       },
       (error) => {
         console.log(error);
@@ -121,6 +123,19 @@ export class BuscarClienteComponent implements OnInit {
     this.clienteService.getAllCredits(this.cliente.id).subscribe(
       (res: Credito[]) => {
         this.creditos = res
+        console.log(this.creditos)
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {}
+    );
+  }
+
+  obtenerPagos(){
+    this.clienteService.getAllPayments(this.cliente.ci).subscribe(
+      (res: Pago[]) => {
+        this.pagos = res
         console.log(this.creditos)
       },
       (error) => {

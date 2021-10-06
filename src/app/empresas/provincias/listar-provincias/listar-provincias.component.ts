@@ -37,18 +37,17 @@ export class ListarProvinciasComponent implements OnInit {
   }
 
   openDeleteModal(id: number) {
-    this.eliminarProvincia(id)
-    /*this.modalService
+    this.modalService
       .open(this.deleteModal, {
         backdrop: 'static',
         keyboard: false,
       })
       .result.then(
         (_) => {
-          //eliminar
+          this.eliminarProvincia(id)
         },
         (_) => {}
-      )*/
+      )
   }
 
   eliminarProvincia(id: number) {

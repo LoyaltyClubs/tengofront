@@ -1,65 +1,49 @@
 <div class="content">
   <div class="container-fluid">
-    <div>
-      <div class="form-group form-search is-empty col-sm-8 col-lg-6">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Carnet de Identidad"
-          [(ngModel)]="dataSearch"
-          (keyup.enter)="onChangeNews()"
-          [ngModelOptions]="{ standalone: true }"
-        />
-        <span class="material-input"></span>
-      </div>
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Carnet de Identidad"
+        [(ngModel)]="dataSearch"
+        (keyup.enter)="onChangeNews()"
+        [ngModelOptions]="{ standalone: true }"
+      />
       <button class="btn btn-warning" (click)="onChangeNews()">
         <div class="ripple-container"></div>
-        <i class="material-icons">search</i>
+        <i class="fas fa-search"></i>
         <div class="ripple-container"></div>
       </button>
     </div>
 
     <div class="card" *ngIf="cliente && cliente.id !== 0">
-      <div class="card-header card-header-tabs" data-background-color="blue">
-        <div class="nav-tabs-navigation">
-          <div class="nav-tabs-wrapper">
-            <ul class="nav nav-tabs" data-tabs="tabs">
-              <li class="active">
-                <a href="#profile" data-toggle="tab">
-                  Datos
-                  <div class="ripple-container"></div
-                ></a>
-              </li>
-              <li class="">
-                <a href="#messages" data-toggle="tab">
-                  Tarjeta
-                  <div class="ripple-container"></div
-                ></a>
-              </li>
-              <li class="">
-                <a href="#settings" data-toggle="tab">
-                  Crédito
-                  <div class="ripple-container"></div
-                ></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-content">
-        <div class="tab-content">
-          <div class="tab-pane active" id="profile">
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li ngbNavItem>
+          <a ngbNavLink>Datos</a>
+          <ng-template ngbNavContent>
             <app-datos-cliente [formGroup]="formGroup"></app-datos-cliente>
-          </div>
-          <div class="tab-pane" id="messages">
-            <app-tarjeta-cliente [tarjetas]="tarjetas"></app-tarjeta-cliente>
-          </div>
-          <div class="tab-pane" id="settings">
-            <app-credito-cliente [creditos]="creditos"></app-credito-cliente>
-          </div>
-        </div>
-      </div>
+          </ng-template>
+        </li>
+        <li ngbNavItem>
+          <a ngbNavLink>Tarjeta</a>
+          <ng-template ngbNavContent
+            ><app-tarjeta-cliente [tarjetas]="tarjetas" [cliente_id]="cliente.id"></app-tarjeta-cliente
+          ></ng-template>
+        </li>
+        <li ngbNavItem>
+          <a ngbNavLink>Crédito</a>
+          <ng-template ngbNavContent
+            ><app-credito-cliente [creditos]="creditos"></app-credito-cliente
+          ></ng-template>
+        </li>
+        <li ngbNavItem>
+          <a ngbNavLink>Pagos</a>
+          <ng-template ngbNavContent
+            ><app-pagos-cliente [pagos]="pagos"></app-pagos-cliente
+          ></ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav"></div>
     </div>
   </div>
 </div>

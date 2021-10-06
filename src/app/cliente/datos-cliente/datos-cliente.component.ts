@@ -111,11 +111,11 @@ export class DatosClienteComponent implements OnInit {
 
   disableControls() {
     this.editing = false
-    this.textEditBtn = 'Editar';
+    this.textEditBtn = 'Editar Cliente';
   }
 
   enableControls() {
-    this.textEditBtn = 'Guardar';
+    this.textEditBtn = 'Guardar Cliente';
     this.editing = true
   }
 

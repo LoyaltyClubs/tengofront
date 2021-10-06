@@ -1,12 +1,11 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header card-header-icon" data-background-color="blue">
-            <i class="material-icons">assignment</i>
+          <h4 class="card-title">Ciudades</h4>
         </div>
 
-        <div class="card-content">
-            <h4 class="card-title">Ciudades</h4>
-            <button class="btn btn-info" routerLink="nuevo">Nuevo</button>
+        <div class="card-content p-2">
+            <button class="btn btn-info float-end text-white" routerLink="nuevo">Nueva Ciudad</button>
 
             <div class="toolbar">
             </div>
@@ -15,21 +14,15 @@
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th class="disabled-sorting text-right">Acciones</th>
+                            <th class="disabled-sorting text-right float-end">Acciones</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Nombre</th>
-                            <th class="text-right">Acciones</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                         <tr *ngFor="let ciudad of ciudades">
                             <td>{{ciudad.nombre}}</td>
                             <td class="text-right">
-                                <a routerLink="editar"  [queryParams]="ciudad" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
-                                <a (click)="openDeleteModal(ciudad.id)" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                <a routerLink="editar"  [queryParams]="ciudad" class="float-end btn btn-simple btn-warning btn-icon edit m-1">Editar</a>
+                                <a (click)="openDeleteModal(ciudad.id)" class="float-end btn btn-simple btn-danger btn-icon m-1">Eliminar</a>
                             </td>
                         </tr>
                     </tbody>

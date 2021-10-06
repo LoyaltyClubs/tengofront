@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { Cliente, Credito, Cuota, Tarjeta } from "./api.types"
+import { Cliente, Credito, Cuota, Pago, Tarjeta } from "./api.types"
 
 @Injectable({
   providedIn: "root",
@@ -39,6 +39,14 @@ export class ClienteService {
 
   updateCard(tarjeta: Tarjeta): Observable<Tarjeta> {
     return this.http.put<Tarjeta>(`${this.basePath}tarjeta/update/${tarjeta.id}`, tarjeta);
+  }
+
+  createCard(tarjeta: Tarjeta): Observable<Tarjeta[]> {
+    return this.http.post<Tarjeta[]>(`${this.basePath}tarjeta/create`, tarjeta);
+  }
+
+  getAllPayments(ci: string): Observable<Pago[]> {
+    return this.http.get<Pago[]>(`${this.basePath}pago/${ci}`);
   }
 
   agregarClientes(file: File, esCliente: string):  Observable<Cliente[]> {

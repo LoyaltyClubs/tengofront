@@ -12,8 +12,8 @@ import { EmpresaCiudad } from '../../../api-client/api.types';
 export class ListarRubroComponent implements OnInit {
   rubros: Rubro[] = [];
 
-  //@ViewChild('deleteModal', { static: true })
-  //deleteModal: TemplateRef<any>
+  @ViewChild('deleteModal', { static: true })
+  deleteModal: TemplateRef<any>
 
   constructor(
     readonly rubroService: RubroService,
@@ -37,8 +37,8 @@ export class ListarRubroComponent implements OnInit {
   }
 
   openDeleteModal(id: number) {
-    this.eliminarRubro(id)
-    /*this.modalService
+    //this.eliminarRubro(id)
+    this.modalService
       .open(this.deleteModal, {
         backdrop: 'static',
         keyboard: false,
@@ -48,7 +48,7 @@ export class ListarRubroComponent implements OnInit {
           //eliminar
         },
         (_) => {}
-      )*/
+      )
   }
 
   eliminarRubro(id: number) {

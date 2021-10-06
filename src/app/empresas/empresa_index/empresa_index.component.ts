@@ -12,6 +12,7 @@ export class EmpresaIndexComponent implements OnInit {
   listEmpresas: Empresa[] = [];
   @ViewChild('deleteModal', { static: true })
   deleteModal: TemplateRef<any>
+  empresaId : number
 
   constructor(private _empresaService: EmpresaService, private readonly modalService: NgbModal) { }
 
@@ -27,23 +28,12 @@ export class EmpresaIndexComponent implements OnInit {
     })
   }
 
-  openDeleteModal(id: number) {
-    this.eliminarEmpresa(id)
-    /*this.modalService
-      .open(this.deleteModal, {
-        backdrop: 'static',
-        keyboard: false,
-      })
-      .result.then(
-        (_) => {
-          //eliminar
-        },
-        (_) => {}
-      )*/
+  selectedDeleteModal(id: number) {
+    this.empresaId = id
   }
 
-  eliminarEmpresa(id: number) {
-    this._empresaService.delete(id).subscribe(
+  eliminarEmpresa() {
+    this._empresaService.delete(this.empresaId).subscribe(
       () => {
         console.log('eliminado')
       },
