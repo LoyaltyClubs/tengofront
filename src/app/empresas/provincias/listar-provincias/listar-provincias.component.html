@@ -1,12 +1,11 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header card-header-icon" data-background-color="blue">
-            <i class="material-icons">assignment</i>
+          <h4 class="card-title">Provincias</h4>
         </div>
 
-        <div class="card-content">
-            <h4 class="card-title">Provincias</h4>
-            <button class="btn btn-info" routerLink="nuevo">Nuevo</button>
+        <div class="card-content p-2">
+            <button class="btn btn-info float-end text-white" routerLink="nuevo">Nueva Provincia</button>
 
             <div class="toolbar">
             </div>
@@ -19,13 +18,6 @@
                             <th class="disabled-sorting text-right">Acciones</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Ciudad</th>
-                            <th class="text-right">Acciones</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                         <tr *ngFor="let provincia of provincias">
                             <td>{{provincia.nombre}}</td>
@@ -33,8 +25,8 @@
                               {{provincia.ciudad}}
                             </td>
                             <td class="text-right">
-                                <a routerLink="editar"  [queryParams]="provincia" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
-                                <a (click)="openDeleteModal(provincia.id)" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                <a routerLink="editar"  [queryParams]="provincia" class="btn btn-simple btn-warning btn-icon float-end m-1">Editar</a>
+                                <a (click)="openDeleteModal(provincia.id)" class="btn btn-simple btn-danger btn-icon float-end m-1">Eliminar</a>
                             </td>
                         </tr>
                     </tbody>

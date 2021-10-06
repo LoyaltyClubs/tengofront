@@ -12,7 +12,8 @@ export class NuevaProvinciaComponent implements OnInit {
   formGroup: FormGroup = this.formBuilder.group({
     nombre: ['', Validators.required],
     ciudad_id: ['', Validators.required],
-    estado: ['', Validators.required],
+    estado: [true, Validators.required],
+    deleted: [false, Validators.required],
   });
 
   constructor(
@@ -24,6 +25,7 @@ export class NuevaProvinciaComponent implements OnInit {
   ngOnInit(): void {}
 
   agregarProvincia() {
+    console.log(this.formGroup.value)
     this.provinciaService.create(this.formGroup.value).subscribe(
       (res) => {
         console.log(res)

@@ -1,12 +1,10 @@
 <div class="col-md-12">
   <div class="card">
     <div class="card-header card-header-icon" data-background-color="blue">
-      <i class="material-icons">assignment</i>
+      <h4 class="card-title">Clientes</h4>
     </div>
 
-    <div class="card-content">
-      <h4 class="card-title">Clientes</h4>
-
+    <div class="card-content p-2">
       <div class="toolbar"></div>
       <div class="material-datatables">
         <table
@@ -26,15 +24,6 @@
               <th class="disabled-sorting text-right">Acciones</th>
             </tr>
           </thead>
-          <tfoot>
-            <tr>
-              <th>Nombre</th>
-              <th>CI</th>
-              <th>Linea de crédito</th>
-              <th>Estado</th>
-              <th class="text-right">Acciones</th>
-            </tr>
-          </tfoot>
           <tbody>
             <tr *ngFor="let cliente of clientes">
               <td>{{ cliente.nombre }} {{ cliente.apellido_paterno }} {{ cliente.apellido_materno }}</td>
@@ -46,7 +35,7 @@
                   routerLink="ver"
                   (click)="verCliente(cliente.ci)"
                   class="btn btn-simple btn-warning btn-icon edit"
-                  ><span class="material-icons"> visibility </span></a
+                  >Ver</a
                 >
               </td>
             </tr>

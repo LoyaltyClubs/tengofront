@@ -1,12 +1,11 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header card-header-icon" data-background-color="blue">
-            <i class="material-icons">assignment</i>
+          <h4 class="card-title">Rubros</h4>
         </div>
 
-        <div class="card-content">
-            <h4 class="card-title">Rubros</h4>
-            <button class="btn btn-info" routerLink="nuevo">Nuevo</button>
+        <div class="card-content p-2">
+            <button class="btn btn-info float-end text-white" routerLink="nuevo">Nuevo Rubro</button>
 
             <div class="toolbar">
             </div>
@@ -15,21 +14,15 @@
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th class="disabled-sorting text-right">Acciones</th>
+                            <th class="disabled-sorting text-right float-end">Acciones</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Nombre</th>
-                            <th class="text-right">Acciones</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                         <tr *ngFor="let rubro of rubros">
                             <td>{{rubro.nombre}}</td>
-                            <td class="text-right">
-                                <a routerLink="editar"  [queryParams]="rubro" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
-                                <a (click)="openDeleteModal(rubro.id)" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                            <td class="text-right ">
+                                <a routerLink="editar"  [queryParams]="rubro" class="btn btn-simple btn-warning btn-icon float-end m-2">Editar</a>
+                                <a (click)="openDeleteModal(rubro.id)" class="btn btn-simple btn-danger btn-icon float-end m-2">Eliminar</a>
                             </td>
                         </tr>
                     </tbody>
@@ -65,7 +58,7 @@
         <button
           ngbAutofocus
           type="button"
-          class="btn btn-md btn-rounded btn-danger"
+          class="btn btn-md btn-rounded btn-danger pe-2"
           (click)="modal.close()"
         >
           Eliminar

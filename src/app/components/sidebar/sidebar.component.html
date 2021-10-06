@@ -7,7 +7,7 @@
   <div class="sidebar-wrapper">
     <ul class="nav flex-column">
       <li class="nav-item active">
-        <a [routerLink]="['/dashboard']">
+        <a class="dropdown-item" [routerLink]="['/dashboard']">
           <p>Principal</p>
         </a>
       </li>
@@ -33,32 +33,56 @@
           >
             <div class="accordion-body">
               <li>
-                <a class="dropdown-item" [routerLink]="['/empresa']">
+                <a
+                  class="dropdown-item"
+                  data-bs-dismiss="offcanvas"
+                  [routerLink]="['/empresa']"
+                >
                   <span class="sidebar-normal"> Empresas </span>
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" routerLink="empresa/cargar">
+                <a
+                  class="dropdown-item"
+                  routerLink="empresa/cargar"
+                  data-bs-dismiss="offcanvas"
+                >
                   <span class="sidebar-normal"> Cargar Empresas </span>
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" [routerLink]="['empresa/rubros']">
+                <a
+                  class="dropdown-item"
+                  [routerLink]="['empresa/rubros']"
+                  data-bs-dismiss="offcanvas"
+                >
                   <span class="sidebar-normal"> Rubro </span>
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" [routerLink]="['empresa/ciudades']">
+                <a
+                  class="dropdown-item"
+                  [routerLink]="['empresa/ciudades']"
+                  data-bs-dismiss="offcanvas"
+                >
                   <span class="sidebar-normal"> Ciudades </span>
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" [routerLink]="['empresa/provincias']">
+                <a
+                  class="dropdown-item"
+                  [routerLink]="['empresa/provincias']"
+                  data-bs-dismiss="offcanvas"
+                >
                   <span class="sidebar-normal"> Provincias </span>
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" routerLink="empresa/planes">
+                <a
+                  class="dropdown-item"
+                  routerLink="empresa/planes"
+                  data-bs-dismiss="offcanvas"
+                >
                   <span class="sidebar-normal"> Planes </span>
                 </a>
               </li>
@@ -66,49 +90,65 @@
           </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseTwo"
-                aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseTwo"
-              >
-                Cliente
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseTwo"
-              class="accordion-collapse collapse show"
-              aria-labelledby="panelsStayOpen-headingTwo"
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseTwo"
+              aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseTwo"
             >
-              <div class="accordion-body">
-                <li>
-                    <a class="dropdown-item"[routerLink]="['cliente/clientes']">
-                      <span class="sidebar-normal"> Clientes </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item"[routerLink]="['/cliente']">
-                      <span class="sidebar-normal"> Buscar Cliente </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item"href="./pages/rtl.html">
-                      <span class="sidebar-normal">
-                        Afiliación de nuevo cliente
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item"[routerLink]="['/cliente/cargar']">
-                      <span class="sidebar-normal"> Carga Clientes </span>
-                    </a>
-                  </li>
-              </div>
+              Cliente
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseTwo"
+            class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingTwo"
+          >
+            <div class="accordion-body">
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="['cliente/clientes']"
+                  data-bs-dismiss="offcanvas"
+                >
+                  <span class="sidebar-normal"> Clientes </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="['/cliente']"
+                  data-bs-dismiss="offcanvas"
+                >
+                  <span class="sidebar-normal"> Buscar Cliente </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="./pages/rtl.html"
+                  data-bs-dismiss="offcanvas"
+                >
+                  <span class="sidebar-normal">
+                    Afiliación de nuevo cliente
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="['/cliente/cargar']"
+                  data-bs-dismiss="offcanvas"
+                >
+                  <span class="sidebar-normal"> Carga Clientes </span>
+                </a>
+              </li>
             </div>
           </div>
+        </div>
       </div>
     </ul>
   </div>

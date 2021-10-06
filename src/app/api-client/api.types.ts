@@ -113,7 +113,8 @@ export type Provincia = {
   readonly nombre: string
   readonly ciudad: string
   readonly ciudad_id: number
-  readonly estado: string
+  readonly estado: boolean
+  readonly deleted: boolean
 }
 
 export type Pago = {

@@ -1,11 +1,7 @@
 <div class="col-md-12">
-    <div class="card">
-        <div class="card-header card-header-icon" data-background-color="blue">
-            <i class="material-icons">mail_outline</i>
-        </div>
-
+    <div class="card p-2">
         <div class="card-content">
-            <h4 class="card-title">Empresa</h4>
+            <h4 class="card-title">Nueva Empresa</h4>
             <form [formGroup]="empresaForm" (ngSubmit)="agregarEmpresa()">
                 <div class="row">
                     <div class="col-md-4">
@@ -76,15 +72,15 @@
                             <input type="text" formControlName="cargo" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group label-floating">
                             <label class="control-label">Carnet de Identidad</label>
                             <input type="text" formControlName="ci" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <div class="form-group label-floating">
-                            <label class="control-label">Expedición</label>
+                            <label class="control-label">Exp.</label>
                             <input type="text" formControlName="expedicion" class="form-control">
                         </div>
                     </div>
@@ -122,10 +118,8 @@
                     </label>
                 </div>
                 
-                
-                
-                <button class="btn btn-fill btn-default" routerLink="/empresa/">Volver</button>
-                <button type="submit" class="btn btn-fill btn-info">Enviar</button>
+                <button type="submit" class="btn btn-fill btn-info float-end text-white">Enviar</button>                
+                <button class="btn btn-fill btn-default float-end" routerLink="/empresa/">Volver</button>
             </form>
         </div>
     </div>

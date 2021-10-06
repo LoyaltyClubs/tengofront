@@ -1,12 +1,11 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header card-header-icon" data-background-color="blue">
-            <i class="material-icons">assignment</i>
+            <h4 class="card-title">Planes</h4>
         </div>
 
-        <div class="card-content">
-            <h4 class="card-title">Planes</h4>
-            <button class="btn btn-info" routerLink="plan">Nuevo</button>
+        <div class="card-content p-2">
+            <button class="btn btn-info float-end text-white" routerLink="plan">Nuevo Plan</button>
             <div class="toolbar">
                 <!--        Here you can write extra buttons/actions for the toolbar              -->
             </div>
@@ -22,16 +21,6 @@
                             <th class="disabled-sorting text-right">Acciones</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Seguro</th>
-                            <th>Mantenimiento</th>
-                            <th>Recargo</th>
-                            <th>Estado</th>
-                            <th class="disabled-sorting text-right">Acciones</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                         <tr *ngFor="let plan of listPlanes">
                             <td>{{plan.nombre}}</td>
@@ -40,8 +29,8 @@
                             <td>{{plan.recargo}}</td>
                             <td>{{plan.estado}}</td>
                             <td class="text-right">
-                                <a routerLink="editar" [queryParams]="plan" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
-                                <a (click)="openDeleteModal(plan.id)" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                <a routerLink="editar" [queryParams]="plan" class="btn btn-simple btn-warning btn-icon float-end text-white m-1">Editar</a>
+                                <a (click)="openDeleteModal(plan.id)" class="btn btn-simple btn-danger btn-icon float-end m-1">Eliminar</a>
                             </td>
                         </tr>
                     </tbody>

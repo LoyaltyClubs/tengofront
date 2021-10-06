@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup" (ngSubmit)="submit()">
+<form class="p-3" [formGroup]="formGroup" (ngSubmit)="submit()">
   <h3 style="color: darkturquoise">Datos Personales</h3>
 
   <div class="row">
@@ -297,22 +297,20 @@
       />
     </div>
   </div>
-  <div class="row p-4">
+  <div class="pt-4">
     <div *ngIf="editing && formGroup.invalid" class="alert alert-danger mb-0">
       Complete todos los campos requeridos (*)
     </div>
     <button
       type="button"
-      class="btn btn-danger col-2"
-      style="float: right; margin-right: 25px"
+      class="btn btn-danger float-end m-1"
       (click)="bloquearCliente()"
     >
       {{ cliente.estado === 'Bloqueado' ? 'Desbloquear Cliente' : 'Bloquear Cliente' }}
     </button>
     <button
       type="submit"
-      class="btn btn-info col-2"
-      style="float: right; margin-right: 25px"
+      class="btn btn-info float-end text-white m-1"
       *ngIf="cliente.estado === 'Desbloqueado'"
     >
       {{ textEditBtn }}

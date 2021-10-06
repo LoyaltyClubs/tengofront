@@ -16,6 +16,8 @@ export class NuevoComponent implements OnInit {
     this.planForm = this.fb.group({
       nombre: ['', Validators.required],
       seguro: ['', Validators.required],
+      interes: ['', Validators.required],
+      mora: ['', Validators.required],
       mantenimiento: ['', Validators.required],
       recargo: ['', Validators.required],
       estado: ['', Validators.required],
