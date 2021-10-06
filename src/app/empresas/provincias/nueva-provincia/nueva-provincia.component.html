@@ -1,46 +1,49 @@
 <div class="col-md-12">
-    <div class="card">
-        <div class="card-header card-header-icon" data-background-color="blue">
-            <h4 class="card-title">Provincia</h4>
-        </div>
-
-        <div class="card-content p-2">
-            <form [formGroup]="formGroup" (ngSubmit)="agregarProvincia()">
-                <div class="form-group label-floating">
-                    <label class="control-label">Nombre</label>
-                    <input type="text" formControlName="nombre" class="form-control">
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" formControlName="estado" name="estado">
-                        Estado
-                    </label>
-                </div>
-                <div class="col">
-                    <label style="margin: 0px">Ciudad(*)</label>
-                    <select
-                      class="bootstrap-select"
-                      data-style="select-with-transition"
-                      title="Ciudad"
-                      data-size="3"
-                      formControlName="ciudad_id"
-                      style="margin-top: 10px"
-                    >
-                      <option disabled>Ciudad</option>
-                      <option value="5">Santa Cruz</option>
-                      <option value="15">La Paz</option>
-                      <option value="25">Cochabamba</option>
-                      <option value="35">Tarija</option>
-                      <option value="45">Chuquisaca</option>
-                      <option value="55">Potosí</option>
-                      <option value="65">Oruro</option>
-                      <option value="75">Pando</option>
-                      <option value="85">Beni</option>
-                    </select>
-                  </div>
-                  <button type="submit" class="btn btn-fill btn-info float-end text-white">Enviar</button>
-                <button class="btn btn-fill btn-default float-end" routerLink="/empresa/provincias">Volver</button>
-            </form>
-        </div>
+  <div class="card">
+    <div class="card-header card-header-icon" data-background-color="blue">
+      <h4 class="card-title">Provincia</h4>
     </div>
+
+    <div class="card-content p-2">
+      <form [formGroup]="formGroup" (ngSubmit)="agregarProvincia()">
+        <div class="form-group label-floating">
+          <label class="control-label">Nombre</label>
+          <input type="text" formControlName="nombre" class="form-control" />
+        </div>
+        <div class="col">
+          <div class="form-group label-floating">
+            <label class="control-label mt-1">Ciudad</label>
+            <select
+              class="form-control form-select w-100 mt-1"
+              aria-label="Default select example"
+              formControlName="ciudad_id"
+            >
+              <option value="" [selected] disabled>Elegir Ciudad</option>
+              <option [value]="ciudad.id" *ngFor="let ciudad of ciudades">
+                {{ ciudad.nombre }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="checkbox mt-1">
+          <label>
+            <input type="checkbox" formControlName="estado" name="estado" />
+            Estado
+          </label>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-fill btn-info float-end text-white"
+        >
+          Enviar
+        </button>
+        <button
+          class="btn btn-fill btn-default float-end"
+          routerLink="/empresa/provincias"
+        >
+          Volver
+        </button>
+      </form>
+    </div>
+  </div>
 </div>

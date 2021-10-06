@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EmpresaCiudad } from 'src/app/api-client/api.types';
+import { EmpresaCiudadService } from 'src/app/api-client/empresa-ciudad.service';
 import { ProvinciaService } from 'src/app/api-client/provincia.service';
 
 @Component({
@@ -9,6 +11,7 @@ import { ProvinciaService } from 'src/app/api-client/provincia.service';
   styleUrls: ['./editar-provincia.component.css']
 })
 export class EditarProvinciaComponent implements OnInit {
+  ciudades: EmpresaCiudad[] = [];
 
   formGroup: FormGroup = this.formBuilder.group({
     nombre: ['', Validators.required],
@@ -20,14 +23,17 @@ export class EditarProvinciaComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private provinciaService: ProvinciaService,
-    private activatedroute: ActivatedRoute
+    private activatedroute: ActivatedRoute,
+    readonly ciudadService: EmpresaCiudadService
   ) {
     this.activatedroute.queryParams.subscribe((data) => {
       this.formGroup = this.formBuilder.group(data)
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.obtenerCiudades()
+  }
 
   editarProvincia() {
     this.provinciaService.edit(this.formGroup.value).subscribe(
@@ -39,6 +45,19 @@ export class EditarProvinciaComponent implements OnInit {
         console.log(error);
         this.formGroup.reset();
       }
+    );
+  }
+
+  obtenerCiudades() {
+    this.ciudadService.getAll().subscribe(
+      (res: EmpresaCiudad[]) => {
+        this.ciudades = res;
+        console.log(res);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {}
     );
   }
 }
