@@ -44,6 +44,7 @@
               <option value="10">10</option>
               <option value="15">15</option>
               <option value="20">20</option>
+              <option value="25">25</option>
             </select>
           </div>
           <div class="col-md-4">
@@ -137,31 +138,47 @@
           <div class="col-md-4">
             <div class="form-group label-floating">
               <label class="control-label">Rubro</label>
-              <input
-                type="number"
+
+              <select
+                class="form-control form-select w-100"
+                aria-label="Default select example"
                 formControlName="rubro_id"
-                class="form-control"
-              />
+              >
+                <option value="" [selected] disabled>Elegir Rubro</option>
+                <option [value]="rubro.id" *ngFor="let rubro of rubros">
+                  {{ rubro.nombre }}
+                </option>
+              </select>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group label-floating">
               <label class="control-label">Ciudad</label>
-              <input
-                type="number"
+              <select
+                class="form-control form-select w-100"
+                aria-label="Default select example"
                 formControlName="ciudad_id"
-                class="form-control"
-              />
+              >
+                <option value="" [selected] disabled>Elegir Ciudad</option>
+                <option [value]="ciudad.id" *ngFor="let ciudad of ciudades">
+                  {{ ciudad.nombre }}
+                </option>
+              </select>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group label-floating">
               <label class="control-label">Plan</label>
-              <input
-                type="number"
+              <select
+                class="form-control form-select w-100"
+                aria-label="Default select example"
                 formControlName="plan_id"
-                class="form-control"
-              />
+              >
+                <option value="" [selected] disabled>Elegir Plan</option>
+                <option [value]="plan.id" *ngFor="let plan of listPlanes">
+                  {{ plan.nombre }}
+                </option>
+              </select>
             </div>
           </div>
         </div>
