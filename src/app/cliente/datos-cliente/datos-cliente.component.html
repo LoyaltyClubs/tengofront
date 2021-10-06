@@ -297,13 +297,13 @@
       />
     </div>
   </div>
-  <div class="row">
+  <div class="row p-4">
     <div *ngIf="editing && formGroup.invalid" class="alert alert-danger mb-0">
       Complete todos los campos requeridos (*)
     </div>
     <button
       type="button"
-      class="btn btn-fill btn-danger"
+      class="btn btn-danger col-2"
       style="float: right; margin-right: 25px"
       (click)="bloquearCliente()"
     >
@@ -311,7 +311,7 @@
     </button>
     <button
       type="submit"
-      class="btn btn-fill btn-info"
+      class="btn btn-info col-2"
       style="float: right; margin-right: 25px"
       *ngIf="cliente.estado === 'Desbloqueado'"
     >

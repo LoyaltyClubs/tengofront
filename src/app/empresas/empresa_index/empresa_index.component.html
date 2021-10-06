@@ -1,12 +1,9 @@
 <div class="col-md-12">
     <div class="card">
-        <div class="card-header card-header-icon" data-background-color="blue">
-            <i class="material-icons">assignment</i>
-        </div>
 
         <div class="card-content">
             <h4 class="card-title">Empresas</h4>
-            <button class="btn btn-info" routerLink="empresa">Nuevo</button>
+            <button class="btn btn-info float-end m-2 text-white" routerLink="empresa">Nueva empresa</button>
             <div class="toolbar">
                 <!--        Here you can write extra buttons/actions for the toolbar              -->
             </div>
@@ -40,8 +37,8 @@
                             <td>{{empresa.fecha_cierre}}</td>
                             <td>{{empresa.estado}}</td>
                             <td class="text-right">
-                                <a routerLink="editar" [queryParams]="empresa" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
-                                <a (click)="openDeleteModal(empresa.id)"  class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                <a routerLink="editar" [queryParams]="empresa" class="p-1 text-white btn btn-simple btn-warning btn-icon edit">Editar</a>
+                                <a (click)="selectedDeleteModal(empresa.id)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 ms-1 btn btn-simple btn-danger btn-icon remove">Eliminar</a>
                             </td>
                         </tr>
                     </tbody>
@@ -50,6 +47,23 @@
         </div><!-- end content-->
     </div><!--  end card  -->
 </div> 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar Empresa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¿Está seguro de eliminar la empresa permanentemente?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="eliminarEmpresa()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <script>
 	$(document).ready(function() {
         console.log("Gola");

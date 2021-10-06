@@ -1,7 +1,91 @@
 <div class="col-md-12">
   <div class="card">
-    <div class="card-content">
-      <div class="toolbar"></div>
+    <div class="card-content p-4">
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary float-end"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Nueva Tarjeta
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Crear Tarjeta</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <form [formGroup]="formGroup" (ngSubmit)="agregarTarjeta()">
+              <div class="modal-body">
+                <div class="form-group label-floating">
+                  <label class="control-label">Número</label>
+                  <input
+                    type="text"
+                    formControlName="numero"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group label-floating">
+                  <label class="control-label">Fecha de Vencimiento</label>
+                  <input
+                    type="date"
+                    class="form-control form-control-sm input-sm"
+                    formControlName="fecha_vencimiento"
+                    placeholder="dd/MM/yyyy"
+                  />
+                </div>
+                <div class="form-group label-floating">
+                  <label class="control-label">Saldo</label>
+                  <input
+                    type="number"
+                    formControlName="saldo"
+                    class="form-control"
+                  />
+                </div>
+                <div>
+                  <label class="label-control">Tipo tarjeta </label>
+                  <select
+                    class="bootstrap-select"
+                    data-style="select-with-transition"
+                    title="Tipo Tarjeta"
+                    data-size="3"
+                    formControlName="tipo_id"
+                    style="margin-top: 10px"
+                  >
+                    <option disabled >Tipo</option>
+                    <option value="5" selected>Nominada</option>
+                    <option value="15">Innominada</option>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  data-bs-dismiss="modal"
+                  class="btn btn-primary"
+                >
+                  Guardar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
       <div class="material-datatables">
         <table
           id="datatables"
@@ -31,8 +115,9 @@
                   data-size="3"
                   [(ngModel)]="tarjeta.estado"
                   style="margin-top: 10px"
-                  (change)='cambiarEstado(tarjeta)'>
+                  (change)="cambiarEstado(tarjeta)"
                 >
+                  >
                   <option value="Vigente">Activa</option>
                   <option value="Cancelada">Cancelada</option>
                   <option value="Bloqueada">Bloqueada</option>

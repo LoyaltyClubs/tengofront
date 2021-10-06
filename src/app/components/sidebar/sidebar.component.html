@@ -1,176 +1,115 @@
-<div class="sidebar" data-active-color="blue" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
-    <!--
-        Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
-        Tip 2: you can also add an image using data-image tag
-        Tip 3: you can change the color of the sidebar with data-background-color="white | black"
-    -->
-
-    <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-             TG 
+<div
+  class="sidebar"
+  data-active-color="blue"
+  data-background-color="black"
+  data-image="../assets/img/sidebar-1.jpg"
+>
+  <div class="sidebar-wrapper">
+    <ul class="nav flex-column">
+      <li class="nav-item active">
+        <a [routerLink]="['/dashboard']">
+          <p>Principal</p>
         </a>
+      </li>
 
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-             TENGO 
-        </a>
-    </div>
-
-    <div class="sidebar-wrapper">
-        <div class="user">
-            <div class="photo">
-                <img src="../assets/img/faces/avatar.jpg" />
-            </div>
-            <div class="info">
-                <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                    <span>
-                         Ajley Arroyo 
-                        <b class="caret"></b>
-                    </span>
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseOne"
+              aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseOne"
+            >
+              Empresa
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingOne"
+          >
+            <div class="accordion-body">
+              <li>
+                <a class="dropdown-item" [routerLink]="['/empresa']">
+                  <span class="sidebar-normal"> Empresas </span>
                 </a>
-                <div class="clearfix"></div>
-                <div class="collapse" id="collapseExample">
-                    <ul class="nav">
-                        <li>
-                            <a href="#">
-                                <span class="sidebar-mini"> MP </span>
-                                <span class="sidebar-normal"> Mi Perfil </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="sidebar-mini"> EP </span>
-                                <span class="sidebar-normal"> Editar Perfil </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="sidebar-mini"> S </span>
-                                <span class="sidebar-normal"> Configuracion </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="empresa/cargar">
+                  <span class="sidebar-normal"> Cargar Empresas </span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" [routerLink]="['empresa/rubros']">
+                  <span class="sidebar-normal"> Rubro </span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" [routerLink]="['empresa/ciudades']">
+                  <span class="sidebar-normal"> Ciudades </span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" [routerLink]="['empresa/provincias']">
+                  <span class="sidebar-normal"> Provincias </span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="empresa/planes">
+                  <span class="sidebar-normal"> Planes </span>
+                </a>
+              </li>
             </div>
+          </div>
         </div>
-        <ul class="nav">
-
-            <li class="active">
-                <a [routerLink]="[ '/dashboard' ]">
-                    <i class="material-icons">dashboard</i>
-                    <p> Principal </p>
-                </a>
-            </li>            
-            
-            <li>
-                <a data-toggle="collapse" href="#empresas">
-                    <i class="material-icons">image</i>
-                    <p> Empresa 
-                       <b class="caret"></b>
-                    </p>
-                </a>
-
-                <div class="collapse" id="empresas">
-                    <ul class="nav">
-                        <li>
-                            <a [routerLink]="[ '/empresa' ]">
-                                <span class="sidebar-mini"> EP </span>
-                                <span class="sidebar-normal"> Empresas </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="empresa/cargar">
-                                <span class="sidebar-mini"> CE </span>
-                                <span class="sidebar-normal"> Cargar Empresas </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a [routerLink]="[ 'empresa/rubros' ]">
-                                <span class="sidebar-mini"> RB </span>
-                                <span class="sidebar-normal"> Rubro </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a [routerLink]="[ 'empresa/ciudades' ]">
-                                <span class="sidebar-mini"> CI </span>
-                                <span class="sidebar-normal"> Ciudades </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a [routerLink]="[ 'empresa/provincias' ]">
-                                <span class="sidebar-mini"> CI </span>
-                                <span class="sidebar-normal"> Provincias </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a routerLink="empresa/planes">
-                                <span class="sidebar-mini"> PL </span>
-                                <span class="sidebar-normal"> Planes </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            
-            <li>
-                <a data-toggle="collapse" href="#cliente">
-                    <i class="material-icons">image</i>
-                    <p> Cliente 
-                       <b class="caret"></b>
-                    </p>
-                </a>
-
-                <div class="collapse" id="cliente">
-                    <ul class="nav">
-                        <li>
-                            <a [routerLink]="[ 'cliente/clientes' ]">
-                                <span class="sidebar-mini"> CL </span>
-                                <span class="sidebar-normal"> Clientes </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a [routerLink]="[ '/cliente' ]">
-                                <span class="sidebar-mini"> CL </span>
-                                <span class="sidebar-normal"> Buscar Cliente </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./pages/rtl.html">
-                                <span class="sidebar-mini"> AC </span>
-                                <span class="sidebar-normal"> Afiliación de nuevo cliente </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a [routerLink]="[ '/cliente/cargar' ]">
-                                <span class="sidebar-mini"> CC </span>
-                                <span class="sidebar-normal"> Carga Clientes </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="collapse" id="reportes">
-                    <ul class="nav">
-                        <li>
-                            <a [routerLink]="[ '/reportes' ]">
-                                <span class="sidebar-mini"> CL </span>
-                                <span class="sidebar-normal"> Reporte </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./pages/rtl.html">
-                                <span class="sidebar-mini"> AC </span>
-                                <span class="sidebar-normal"> Reporte </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./pages/timeline.html">
-                                <span class="sidebar-mini"> CC </span>
-                                <span class="sidebar-normal"> Reporte </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            
-        </ul>
-    </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo"
+                aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseTwo"
+              >
+                Cliente
+              </button>
+            </h2>
+            <div
+              id="panelsStayOpen-collapseTwo"
+              class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-headingTwo"
+            >
+              <div class="accordion-body">
+                <li>
+                    <a class="dropdown-item"[routerLink]="['cliente/clientes']">
+                      <span class="sidebar-normal"> Clientes </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item"[routerLink]="['/cliente']">
+                      <span class="sidebar-normal"> Buscar Cliente </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item"href="./pages/rtl.html">
+                      <span class="sidebar-normal">
+                        Afiliación de nuevo cliente
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item"[routerLink]="['/cliente/cargar']">
+                      <span class="sidebar-normal"> Carga Clientes </span>
+                    </a>
+                  </li>
+              </div>
+            </div>
+          </div>
+      </div>
+    </ul>
+  </div>
 </div>

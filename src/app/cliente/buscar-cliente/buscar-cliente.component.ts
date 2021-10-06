@@ -32,7 +32,7 @@ export class BuscarClienteComponent implements OnInit {
         this.newsFilter = {
           ci: params['ci'],
         };
-
+        this.dataSearch = params['ci']
         console.log(params['ci'])
       }
       this.loadFromQueryParams();

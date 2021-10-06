@@ -81,6 +81,7 @@ export type Tarjeta = {
   tipo_id: number;
   saldo: number;
   deleted: boolean;
+  cliente_id: number
 }
 
 export type Credito = {
@@ -113,4 +114,16 @@ export type Provincia = {
   readonly ciudad: string
   readonly ciudad_id: number
   readonly estado: string
+}
+
+export type Pago = {
+  readonly id: number
+  readonly nro_transaccion: string
+  readonly fecha_transaccion: string
+  readonly nro_vendedor: number
+  readonly forma_pago: string
+  readonly monto_abonado: string
+  readonly nro_comprobante: string
+  readonly ci_cliente: string
+  readonly cliente_id: string
 }
