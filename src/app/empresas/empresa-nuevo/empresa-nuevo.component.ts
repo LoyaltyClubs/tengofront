@@ -54,8 +54,7 @@ export class EmpresaNuevoComponent implements OnInit {
   }
 
   agregarEmpresa() {
-    console.log(this.empresaForm.value)
-    /*this._empresaService.agregarEmpresa(this.empresaForm.value).subscribe(
+    this._empresaService.agregarEmpresa(this.empresaForm.value).subscribe(
       (data) => {
         this.router.navigate(['/empresa/']);
       },
@@ -63,7 +62,7 @@ export class EmpresaNuevoComponent implements OnInit {
         console.log(error);
         this.empresaForm.reset();
       }
-    );*/
+    );
   }
 
   obtenerPlanes() {
