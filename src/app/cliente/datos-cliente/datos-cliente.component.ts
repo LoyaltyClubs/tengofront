@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import {
   ControlContainer,
@@ -5,8 +6,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Cliente } from 'src/app/api-client/api.types';
+import { Cliente, EmpresaCiudad } from 'src/app/api-client/api.types';
 import { ClienteService } from 'src/app/api-client/cliente.service';
+import { EmpresaCiudadService } from 'src/app/api-client/empresa-ciudad.service';
 
 @Component({
   selector: 'app-datos-cliente',
@@ -16,6 +18,7 @@ import { ClienteService } from 'src/app/api-client/cliente.service';
 export class DatosClienteComponent implements OnInit {
   @Input() formGroup: FormGroup;
   cliente: Cliente
+  ciudades: EmpresaCiudad[] = [];
 
   textEditBtn: string;
   editing = false;
@@ -23,7 +26,8 @@ export class DatosClienteComponent implements OnInit {
   constructor(
     private controlContainer: ControlContainer,
     private readonly clienteService: ClienteService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    readonly ciudadService: EmpresaCiudadService,
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +35,7 @@ export class DatosClienteComponent implements OnInit {
     this.cliente = this.formGroup.value
     this.setFormValidations()
     this.disableControls();
+    this.obtenerCiudades()
   }
 
   setFormValidations() {
@@ -39,6 +44,7 @@ export class DatosClienteComponent implements OnInit {
     this.formGroup.get('apellido_materno')?.setValidators([Validators.required])
     this.formGroup.get('estado_civil')?.setValidators([Validators.required])
     this.formGroup.get('fecha_nacimiento')?.setValidators([Validators.required])
+    this.formGroup.get('fecha_nacimiento')?.setValue(formatDate(this.cliente.fecha_nacimiento, 'yyyy-MM-dd', 'en'))
     this.formGroup.get('sexo')?.setValidators([Validators.required])
     this.formGroup.get('ci')?.setValidators([Validators.required])
     this.formGroup.get('calle_particular')?.setValidators([Validators.required])
@@ -119,4 +125,16 @@ export class DatosClienteComponent implements OnInit {
     this.editing = true
   }
 
+  obtenerCiudades() {
+    this.ciudadService.getAll().subscribe(
+      (res: EmpresaCiudad[]) => {
+        this.ciudades = res;
+        console.log(res);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {}
+    );
+  }
 }

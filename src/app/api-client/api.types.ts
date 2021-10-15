@@ -50,7 +50,7 @@ export type Cliente = {
   readonly apellido_paterno: string
   readonly apellido_materno: string
   readonly estado_civil: string
-  readonly fecha_nacimiento: string
+  readonly fecha_nacimiento: Date
   readonly ci: string
   readonly calle_particular: string
   readonly extension: string
@@ -103,9 +103,25 @@ export type Cuota = {
   descripcion: string;
   fecha_limite: Date;
   monto: number;
+  abonado: number;
+  interes: number;
   nro_de_cuota: number;
   estado: string,
   deleted: boolean;
+}
+
+export type CuotaMensual = {
+  id: number
+  nombre: string
+  monto_total: number
+  monto_capital: number
+  interes: number
+  estado: string
+  mora: number
+  fecha: Date
+  gastos_cobranza: number
+  ci_cliente: string
+  cliente_id: number
 }
 
 export type Provincia = {

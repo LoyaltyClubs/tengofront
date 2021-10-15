@@ -42,6 +42,12 @@
             ><app-pagos-cliente [pagos]="pagos"></app-pagos-cliente
           ></ng-template>
         </li>
+        <li ngbNavItem>
+          <a ngbNavLink>Cuotas Mensuales</a>
+          <ng-template ngbNavContent>
+            <app-pagos-mensuales-cliente [cuotasMensuales]="cuotasMensuales"></app-pagos-mensuales-cliente>
+          </ng-template>
+        </li>
       </ul>
       <div [ngbNavOutlet]="nav"></div>
     </div>

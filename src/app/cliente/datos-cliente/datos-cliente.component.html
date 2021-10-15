@@ -5,7 +5,7 @@
     <div class="col-lg-4">
       <label for="nombre" style="margin: 0px">Nombre(*)</label>
       <input
-        type="text"
+        type="text" 
         class="form-control"
         style="margin: 0px"
         id="nombre"
@@ -45,9 +45,8 @@
       <div class="form-group">
         <label class="label-control">Fecha de Nacimiento(*)</label>
         <input
-          type="text"
+        type="date"
           class="form-control datetimepicker"
-          value="10/05/2016"
           formControlName="fecha_nacimiento"
           [attr.disabled]="editing === false ? true : null"
         />
@@ -64,37 +63,37 @@
       />
     </div>
     <div class="col-lg-4">
-      <label class="label-control">Estado Civil(*)</label>
-      <select
-        class="bootstrap-select"
-        data-style="select-with-transition"
-        title="Estado Civil"
-        data-size="3"
-        formControlName="estado_civil"
-        style="margin-top: 10px"
-      >
-        <option disabled>Estado Civil</option>
-        <option value="Casado">Casado</option>
-        <option value="Soltero">Soltero</option>
-        <option value="Viudo">Viudo</option>
-      </select>
+      <div class="form-group label-floating">
+        <label class="control-label">Estado Civil(*)</label>
+        <select
+          class="form-control form-select w-100"
+          aria-label="Default select example"
+          formControlName="estado_civil"
+          [attr.disabled]="editing === false ? true : null"
+        >
+          <option value="" [selected] disabled>Estado Civil</option>
+          <option value="Casado">Casado</option>
+          <option value="Soltero">Soltero</option>
+          <option value="Viudo">Viudo</option>
+        </select>
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-4">
-      <label style="margin: 0px">Sexo</label>
-      <select
-        class="bootstrap-select"
-        data-style="select-with-transition"
-        title="Sexo"
-        data-size="3"
-        formControlName="sexo"
-        style="margin-top: 10px"
-      >
-        <option disabled>Sexo</option>
-        <option value="Femenino">Femenino</option>
-        <option value="Masculino">Masculino</option>
-      </select>
+      <div class="form-group label-floating">
+        <label class="control-label">Sexo</label>
+        <select
+          class="form-control form-select w-100"
+          aria-label="Default select example"
+          formControlName="estado_civil"
+          [attr.disabled]="editing === false ? true : null"
+        >
+          <option value="" [selected] disabled>Sexo</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+        </select>
+      </div>
     </div>
     <div class="col-lg-4">
       <label style="margin: 0px">Teléfono Celular(*)</label>
@@ -154,6 +153,23 @@
 
   <div class="row">
     <div class="col-lg-4">
+      <div class="form-group label-floating">
+        <label class="control-label">Ciudad</label>
+        <select
+          class="form-control form-select w-100"
+          aria-label="Default select example"
+          formControlName="ciudad_id"
+          [attr.disabled]="editing === false ? true : null"
+        >
+          <option value="" [selected] disabled>Elegir Ciudad</option>
+          <option [value]="ciudad.id" *ngFor="let ciudad of ciudades">
+            {{ ciudad.nombre }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
       <label style="margin: 0px">Provincia(*)</label>
       <input
         type="text"
@@ -164,29 +180,6 @@
       />
     </div>
 
-    <div class="col-lg-4">
-      <label style="margin: 0px">Ciudad(*)</label>
-
-      <select
-        class="bootstrap-select"
-        data-style="select-with-transition"
-        title="Ciudad"
-        data-size="3"
-        formControlName="ciudad_id"
-        style="margin-top: 10px"
-      >
-        <option disabled>Ciudad</option>
-        <option value="5">Santa Cruz</option>
-        <option value="15">La Paz</option>
-        <option value="25">Cochabamba</option>
-        <option value="35">Tarija</option>
-        <option value="45">Chuquisaca</option>
-        <option value="55">Potosí</option>
-        <option value="65">Oruro</option>
-        <option value="75">Pando</option>
-        <option value="85">Beni</option>
-      </select>
-    </div>
     <div class="col-lg-4">
       <label style="margin: 0px">Email(*)</label>
       <input

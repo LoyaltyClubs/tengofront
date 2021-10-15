@@ -23,6 +23,7 @@ export class EmpresaIndexComponent implements OnInit {
   obtenerEmpresa(){
     this._empresaService.getEmpresa().subscribe(data => {
       this.listEmpresas = data;
+      console.log(data)
     }, error => {
       console.log(error);
     })

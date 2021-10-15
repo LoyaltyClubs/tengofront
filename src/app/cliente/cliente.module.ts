@@ -11,6 +11,7 @@ import { ClienteRoutingModule } from './cliente-routing.module';
 import { ClienteCargarComponent } from './cliente-cargar/cliente-cargar.component';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 import { PagosClienteComponent } from './pagos-cliente/pagos-cliente.component';
+import { PagosMensualesClienteComponent } from './pagos-mensuales-cliente/pagos-mensuales-cliente.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PagosClienteComponent } from './pagos-cliente/pagos-cliente.component';
     CreditoClienteComponent,
     ClienteCargarComponent,
     ListaClientesComponent,
-    PagosClienteComponent
+    PagosClienteComponent,
+    PagosMensualesClienteComponent
   ],
   imports: [
     CommonModule,
