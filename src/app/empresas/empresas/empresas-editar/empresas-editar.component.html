@@ -26,13 +26,21 @@
                     
                 </div>
                 <div class="row">
-                    
                     <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="label-control">Fecha de Cierre</label>
-                            <input type="date" formControlName="fecha_cierre" class="form-control"/>
-                        </div>
-                    </div>
+                        <label class="label-control">Fecha de Cierre</label>
+            
+                        <select
+                          class="form-select"
+                          aria-label="Fecha de Cierre"
+                          formControlName="fecha_cierre"
+                        >
+                          <option value="5" [selected]>5</option>
+                          <option value="10">10</option>
+                          <option value="15">15</option>
+                          <option value="20">20</option>
+                          <option value="25">25</option>
+                        </select>
+                      </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="label-control">Inicio de contrato</label>
@@ -94,24 +102,52 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Rubro</label>
-                            <input type="number" formControlName="rubro_id" class="form-control">
-                        </div>
+                      <div class="form-group label-floating">
+                        <label class="control-label">Rubro</label>
+          
+                        <select
+                          class="form-control form-select w-100"
+                          aria-label="Default select example"
+                          formControlName="rubro_id"
+                        >
+                          <option value="" [selected] disabled>Elegir Rubro</option>
+                          <option [value]="rubro.id" *ngFor="let rubro of rubros">
+                            {{ rubro.nombre }}
+                          </option>
+                        </select>
+                      </div> 
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Ciudad</label>
-                            <input type="number" formControlName="ciudad_id" class="form-control">
-                        </div>
+                      <div class="form-group label-floating">
+                        <label class="control-label">Ciudad</label>
+                        <select
+                          class="form-control form-select w-100"
+                          aria-label="Default select example"
+                          formControlName="ciudad_id"
+                        >
+                          <option value="" [selected] disabled>Elegir Ciudad</option>
+                          <option [value]="ciudad.id" *ngFor="let ciudad of ciudades">
+                            {{ ciudad.nombre }}
+                          </option>
+                        </select>
+                      </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Plan</label>
-                            <input type="number" formControlName="plan_id" class="form-control">
-                        </div>
+                      <div class="form-group label-floating">
+                        <label class="control-label">Plan</label>
+                        <select
+                          class="form-control form-select w-100"
+                          aria-label="Default select example"
+                          formControlName="plan_id"
+                        >
+                          <option value="" [selected] disabled>Elegir Plan</option>
+                          <option [value]="plan.id" *ngFor="let plan of listPlanes">
+                            {{ plan.nombre }}
+                          </option>
+                        </select>
+                      </div>
                     </div>
-                </div>
+                  </div>
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" formControlName="estado" name="estado">

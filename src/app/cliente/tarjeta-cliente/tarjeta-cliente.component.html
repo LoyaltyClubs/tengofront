@@ -98,6 +98,7 @@
               <th>ID</th>
               <th>Válido hasta</th>
               <th>Número</th>
+              <th>Saldo</th>
               <th>Estado</th>
             </tr>
           </thead>
@@ -106,6 +107,7 @@
               <td>{{ tarjeta.id }}</td>
               <td>{{ tarjeta.fecha_vencimiento | date:'shortDate'}}</td>
               <td>{{ tarjeta.numero }}</td>
+              <td>{{ tarjeta.saldo }}</td>
               <td>
                 <select
                 class="form-control form-select w-100"
