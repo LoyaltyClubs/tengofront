@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cliente, Credito, Pago, Tarjeta } from 'src/app/api-client/api.types';
+import { Cliente, Credito, CuotaMensual, Pago, Tarjeta } from 'src/app/api-client/api.types';
 import { ClienteService } from 'src/app/api-client/cliente.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class BuscarClienteComponent implements OnInit {
   tarjetas: Tarjeta[]
   creditos: Credito[]
   pagos: Pago[]
+  cuotasMensuales: CuotaMensual[]
 
   formGroup: FormGroup
   
@@ -46,7 +47,7 @@ export class BuscarClienteComponent implements OnInit {
        apellido_paterno: '',
        apellido_materno: '',
        estado_civil: '',
-       fecha_nacimiento: '',
+       fecha_nacimiento: new Date(),
        ci: '',
        calle_particular: '',
        extension: '',
@@ -98,6 +99,7 @@ export class BuscarClienteComponent implements OnInit {
         this.obtenerTarjetas()
         this.obtenerCreditos()
         this.obtenerPagos()
+        this.obtenerCuotasMensuales()
       },
       (error) => {
         console.log(error);
@@ -110,7 +112,7 @@ export class BuscarClienteComponent implements OnInit {
     this.clienteService.getAllCards(this.cliente.id).subscribe(
       (res: Tarjeta[]) => {
         this.tarjetas = res
-        console.log(this.tarjetas)
+        console.log(res)
       },
       (error) => {
         console.log(error);
@@ -123,7 +125,7 @@ export class BuscarClienteComponent implements OnInit {
     this.clienteService.getAllCredits(this.cliente.id).subscribe(
       (res: Credito[]) => {
         this.creditos = res
-        console.log(this.creditos)
+        console.log(res)
       },
       (error) => {
         console.log(error);
@@ -136,7 +138,20 @@ export class BuscarClienteComponent implements OnInit {
     this.clienteService.getAllPayments(this.cliente.ci).subscribe(
       (res: Pago[]) => {
         this.pagos = res
-        console.log(this.creditos)
+        console.log(res)
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {}
+    );
+  }
+
+  obtenerCuotasMensuales(){
+    this.clienteService.getMonthlyQuotesBy(this.cliente.id).subscribe(
+      (res: CuotaMensual[]) => {
+        this.cuotasMensuales = res
+        console.log(res)
       },
       (error) => {
         console.log(error);

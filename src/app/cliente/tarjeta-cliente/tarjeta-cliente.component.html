@@ -65,7 +65,6 @@
                     title="Tipo Tarjeta"
                     data-size="3"
                     formControlName="tipo_id"
-                    style="margin-top: 10px"
                   >
                     <option disabled >Tipo</option>
                     <option value="5" selected>Nominada</option>
@@ -105,11 +104,11 @@
           <tbody>
             <tr *ngFor="let tarjeta of tarjetas">
               <td>{{ tarjeta.id }}</td>
-              <td>{{ tarjeta.fecha_vencimiento }}</td>
+              <td>{{ tarjeta.fecha_vencimiento | date:'shortDate'}}</td>
               <td>{{ tarjeta.numero }}</td>
               <td>
                 <select
-                  class="bootstrap-select"
+                class="form-control form-select w-100"
                   data-style="select-with-transition"
                   title="Estado"
                   data-size="3"

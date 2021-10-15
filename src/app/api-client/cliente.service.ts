@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { Cliente, Credito, Cuota, Pago, Tarjeta } from "./api.types"
+import { Cliente, Credito, Cuota, CuotaMensual, Pago, Tarjeta } from "./api.types"
 
 @Injectable({
   providedIn: "root",
@@ -47,6 +47,10 @@ export class ClienteService {
 
   getAllPayments(ci: string): Observable<Pago[]> {
     return this.http.get<Pago[]>(`${this.basePath}pago/${ci}`);
+  }
+
+  getMonthlyQuotesBy(id: number): Observable<CuotaMensual[]> {
+    return this.http.get<CuotaMensual[]>(`${this.basePath}cuotas_mensuales/${id}`);
   }
 
   agregarClientes(file: File, esCliente: string):  Observable<Cliente[]> {
