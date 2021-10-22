@@ -1,7 +1,27 @@
 <div class="col-md-12">
   <div class="card">
     <div class="card-header card-header-icon" data-background-color="blue">
-      <h4 class="card-title">Clientes</h4>
+      <div class="input-group float-end">
+        <h4 class="card-title col-7">Clientes</h4>
+
+        <div class="col-5">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Buscar por Carnet de Identidad o Apellido"
+              [(ngModel)]="dataSearch"
+              (keyup.enter)="onChangeCustomer()"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <button class="btn btn-warning" (click)="onChangeCustomer()">
+              <div class="ripple-container"></div>
+              <i class="fas fa-search"></i>
+              <div class="ripple-container"></div>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="card-content p-2">
@@ -26,9 +46,12 @@
           </thead>
           <tbody>
             <tr *ngFor="let cliente of clientes">
-              <td>{{ cliente.nombre }} {{ cliente.apellido_paterno }} {{ cliente.apellido_materno }}</td>
+              <td>
+                {{ cliente.nombre }} {{ cliente.apellido_paterno }}
+                {{ cliente.apellido_materno }}
+              </td>
               <td>{{ cliente.ci }}</td>
-              <td>{{ cliente.linea_credito  | number }}</td>
+              <td>{{ cliente.linea_credito | number }}</td>
               <td>{{ cliente.estado }}</td>
               <td class="text-right">
                 <a

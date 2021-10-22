@@ -14,6 +14,9 @@ export class EmpresaIndexComponent implements OnInit {
   deleteModal: TemplateRef<any>
   empresaId : number
 
+  empresasPermanentes: Empresa[] = [];
+  dataSearch: any;
+
   constructor(private _empresaService: EmpresaService, private readonly modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -43,5 +46,18 @@ export class EmpresaIndexComponent implements OnInit {
       },
       () => {}
     );
+  }
+
+  onChangeSearch() {
+    if (!this.dataSearch){
+      this.listEmpresas = this.empresasPermanentes
+      return
+    }
+
+    this.listEmpresas = this.listEmpresas.filter(
+      (empresa) =>
+        empresa.nombre.toLowerCase().includes(this.dataSearch.toLowerCase())
+    );
+    console.log(this.listEmpresas)
   }
 }

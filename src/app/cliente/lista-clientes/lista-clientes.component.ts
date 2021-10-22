@@ -6,16 +6,19 @@ import { ClienteService } from 'src/app/api-client/cliente.service';
 @Component({
   selector: 'app-lista-clientes',
   templateUrl: './lista-clientes.component.html',
-  styleUrls: ['./lista-clientes.component.css']
+  styleUrls: ['./lista-clientes.component.css'],
 })
 export class ListaClientesComponent implements OnInit {
   clientes: Cliente[] = [];
-  clienteFilter: any
+  clientesPermanentes: Cliente[] = [];
+
+  clienteFilter: any;
+  dataSearch: any;
 
   constructor(
     readonly clienteService: ClienteService,
     private router: Router,
-    private aRoute: ActivatedRoute,
+    private aRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +29,8 @@ export class ListaClientesComponent implements OnInit {
     this.clienteService.getAll().subscribe(
       (res: Cliente[]) => {
         this.clientes = res;
-        console.log(res)
+        this.clientesPermanentes = res;
+        console.log(res);
       },
       (error) => {
         console.log(error);
@@ -40,9 +44,23 @@ export class ListaClientesComponent implements OnInit {
       ci: ci,
     };
 
-    this.router.navigate(["/cliente"], {
+    this.router.navigate(['/cliente'], {
       queryParams: this.clienteFilter,
     });
   }
 
+  onChangeCustomer() {
+    if (!this.dataSearch){
+      this.clientes = this.clientesPermanentes
+      return
+    }
+
+    this.clientes = this.clientes.filter(
+      (cliente) =>
+        cliente.apellido_paterno.toLowerCase().includes(this.dataSearch.toLowerCase()) ||
+        cliente.apellido_materno.toLowerCase().includes(this.dataSearch.toLowerCase()) ||
+        cliente.ci.toString().toLowerCase().includes(this.dataSearch.toLowerCase())
+    );
+    console.log(this.clientes)
+  }
 }

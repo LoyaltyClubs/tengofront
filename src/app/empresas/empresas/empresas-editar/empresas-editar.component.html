@@ -1,164 +1,214 @@
 <div class="col-md-12">
-    <div class="card p-2">
-
-        <div class="card-content">
-            <h4 class="card-title">Editar Empresa</h4>
-            <form [formGroup]="formGroup" (ngSubmit)="editarEmpresa()">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Nombre</label>
-                            <input type="text" formControlName="nombre" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Razon Social</label>
-                            <input type="text" formControlName="razon_social" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">NIT</label>
-                            <input type="text" formControlName="nit" class="form-control">
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="label-control">Fecha de Cierre</label>
-            
-                        <select
-                          class="form-select"
-                          aria-label="Fecha de Cierre"
-                          formControlName="fecha_cierre"
-                        >
-                          <option value="5" [selected]>5</option>
-                          <option value="10">10</option>
-                          <option value="15">15</option>
-                          <option value="20">20</option>
-                          <option value="25">25</option>
-                        </select>
-                      </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="label-control">Inicio de contrato</label>
-                            <input type="date" formControlName="inicio_contrato" class="form-control"/>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="label-control">Fin de contrato</label>
-                            <input type="date" formControlName="fin_contrato" class="form-control"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Dirección</label>
-                            <input type="text" formControlName="direccion" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Representante Legal</label>
-                            <input type="text" formControlName="representante_legal" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Correo</label>
-                            <input type="email" formControlName="email" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Cargo</label>
-                            <input type="text" formControlName="cargo" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Carnet de Identidad</label>
-                            <input type="text" formControlName="ci" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-1">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Exp.</label>
-                            <input type="text" formControlName="expedicion" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group label-floating">
-                            <label class="control-label">Teléfono</label>
-                            <input type="number" formControlName="telefono" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                      <div class="form-group label-floating">
-                        <label class="control-label">Rubro</label>
-          
-                        <select
-                          class="form-control form-select w-100"
-                          aria-label="Default select example"
-                          formControlName="rubro_id"
-                        >
-                          <option value="" [selected] disabled>Elegir Rubro</option>
-                          <option [value]="rubro.id" *ngFor="let rubro of rubros">
-                            {{ rubro.nombre }}
-                          </option>
-                        </select>
-                      </div> 
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group label-floating">
-                        <label class="control-label">Ciudad</label>
-                        <select
-                          class="form-control form-select w-100"
-                          aria-label="Default select example"
-                          formControlName="ciudad_id"
-                        >
-                          <option value="" [selected] disabled>Elegir Ciudad</option>
-                          <option [value]="ciudad.id" *ngFor="let ciudad of ciudades">
-                            {{ ciudad.nombre }}
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group label-floating">
-                        <label class="control-label">Plan</label>
-                        <select
-                          class="form-control form-select w-100"
-                          aria-label="Default select example"
-                          formControlName="plan_id"
-                        >
-                          <option value="" [selected] disabled>Elegir Plan</option>
-                          <option [value]="plan.id" *ngFor="let plan of listPlanes">
-                            {{ plan.nombre }}
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" formControlName="estado" name="estado">
-                        Estado
-                    </label>
-                </div>
-                
-                
-                <button type="submit" class="btn btn-fill btn-info float-end text-white">Enviar</button>
-                <button class="btn btn-fill btn-default float-end" routerLink="/empresa/">Volver</button>
-            </form>
+  <div class="card p-2">
+    <div class="card-content">
+      <h4 class="card-title">Editar Empresa</h4>
+      <form [formGroup]="formGroup" (ngSubmit)="editarEmpresa()">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Nombre</label>
+              <input
+                type="text"
+                formControlName="nombre"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Razon Social</label>
+              <input
+                type="text"
+                formControlName="razon_social"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">NIT</label>
+              <input type="text" formControlName="nit" class="form-control" />
+            </div>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label class="label-control">Fecha de Cierre</label>
+
+            <select
+              class="form-select"
+              aria-label="Fecha de Cierre"
+              formControlName="fecha_cierre"
+            >
+              <option value="5" [selected]>5</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="label-control">Inicio de contrato</label>
+              <input
+                type="date"
+                formControlName="inicio_contrato"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="label-control">Fin de contrato</label>
+              <input
+                type="date"
+                formControlName="fin_contrato"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Dirección</label>
+              <input
+                type="text"
+                formControlName="direccion"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Representante Legal</label>
+              <input
+                type="text"
+                formControlName="representante_legal"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Persona de contacto</label>
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Correo de contacto</label>
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Cargo de contacto</label>
+              <input type="text" formControlName="cargo" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group label-floating">
+              <label class="control-label">Carnet de Identidad</label>
+              <input type="text" formControlName="ci" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-1">
+            <div class="form-group label-floating">
+              <label class="control-label">Exp.</label>
+              <input
+                type="text"
+                formControlName="expedicion"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Teléfono</label>
+              <input
+                type="number"
+                formControlName="telefono"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Rubro</label>
+
+              <select
+                class="form-control form-select w-100"
+                aria-label="Default select example"
+                formControlName="rubro_id"
+              >
+                <option value="" [selected] disabled>Elegir Rubro</option>
+                <option [value]="rubro.id" *ngFor="let rubro of rubros">
+                  {{ rubro.nombre }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Ciudad</label>
+              <select
+                class="form-control form-select w-100"
+                aria-label="Default select example"
+                formControlName="ciudad_id"
+              >
+                <option value="" [selected] disabled>Elegir Ciudad</option>
+                <option [value]="ciudad.id" *ngFor="let ciudad of ciudades">
+                  {{ ciudad.nombre }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group label-floating">
+              <label class="control-label">Plan</label>
+              <select
+                class="form-control form-select w-100"
+                aria-label="Default select example"
+                formControlName="plan_id"
+              >
+                <option value="" [selected] disabled>Elegir Plan</option>
+                <option [value]="plan.id" *ngFor="let plan of listPlanes">
+                  {{ plan.nombre }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" formControlName="estado" name="estado" />
+            Estado
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-fill btn-info float-end text-white"
+        >
+          Enviar
+        </button>
+        <button
+          class="btn btn-fill btn-default float-end"
+          routerLink="/empresa/"
+        >
+          Volver
+        </button>
+      </form>
     </div>
+  </div>
 </div>

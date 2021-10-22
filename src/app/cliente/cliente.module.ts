@@ -12,6 +12,7 @@ import { ClienteCargarComponent } from './cliente-cargar/cliente-cargar.componen
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 import { PagosClienteComponent } from './pagos-cliente/pagos-cliente.component';
 import { PagosMensualesClienteComponent } from './pagos-mensuales-cliente/pagos-mensuales-cliente.component';
+import { BloqueoClienteComponent } from './bloqueo-cliente/bloqueo-cliente.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PagosMensualesClienteComponent } from './pagos-mensuales-cliente/pagos-
     ClienteCargarComponent,
     ListaClientesComponent,
     PagosClienteComponent,
-    PagosMensualesClienteComponent
+    PagosMensualesClienteComponent,
+    BloqueoClienteComponent
   ],
   imports: [
     CommonModule,

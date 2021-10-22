@@ -5,7 +5,7 @@
     <div class="col-lg-4">
       <label for="nombre" style="margin: 0px">Nombre(*)</label>
       <input
-        type="text" 
+        type="text"
         class="form-control"
         style="margin: 0px"
         id="nombre"
@@ -45,7 +45,7 @@
       <div class="form-group">
         <label class="label-control">Fecha de Nacimiento(*)</label>
         <input
-        type="date"
+          type="date"
           class="form-control datetimepicker"
           formControlName="fecha_nacimiento"
           [attr.disabled]="editing === false ? true : null"
@@ -290,6 +290,40 @@
       />
     </div>
   </div>
+  <h3 style="color: darkturquoise">Otros</h3>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <label style="margin: 0px">Plan</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="tipo_tel_referencia"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+    <div class="col-lg-4">
+      <label style="margin: 0px">Empresa</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="tipo_tel_referencia"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+    <div class="col-lg-4">
+      <label style="margin: 0px">Código Funcionario</label>
+      <input
+        type="text"
+        class="form-control"
+        style="margin: 0px"
+        formControlName="tipo_tel_referencia"
+        [attr.disabled]="editing === false ? true : null"
+      />
+    </div>
+  </div>
   <div class="pt-4">
     <div *ngIf="editing && formGroup.invalid" class="alert alert-danger mb-0">
       Complete todos los campos requeridos (*)
@@ -299,7 +333,11 @@
       class="btn btn-danger float-end m-1"
       (click)="bloquearCliente()"
     >
-      {{ cliente.estado === 'Bloqueado' ? 'Desbloquear Cliente' : 'Bloquear Cliente' }}
+      {{
+        cliente.estado === "Bloqueado"
+          ? "Desbloquear Cliente"
+          : "Bloquear Cliente"
+      }}
     </button>
     <button
       type="submit"

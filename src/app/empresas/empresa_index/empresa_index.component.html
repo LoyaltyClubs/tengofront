@@ -1,7 +1,30 @@
 <div class="col-md-12">
     <div class="card p-2">
+      <div class="card-header card-header-icon" data-background-color="blue">
+        <div class="input-group float-end">
+          <h4 class="card-title col-7">Empresas</h4>
+  
+          <div class="col-5">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Buscar por nombre"
+                [(ngModel)]="dataSearch"
+                (keyup.enter)="onChangeSearch()"
+                [ngModelOptions]="{ standalone: true }"
+              />
+              <button class="btn btn-warning" (click)="onChangeSearch()">
+                <div class="ripple-container"></div>
+                <i class="fas fa-search"></i>
+                <div class="ripple-container"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
         <div class="card-content">
-            <h4 class="card-title">Empresas</h4>
             <button class="btn btn-info float-end m-2 text-white" routerLink="empresa">Nueva empresa</button>
             <div class="toolbar">
                 <!--        Here you can write extra buttons/actions for the toolbar              -->

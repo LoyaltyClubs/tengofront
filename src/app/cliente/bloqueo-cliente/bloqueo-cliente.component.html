@@ -1,0 +1,28 @@
+<form class="p-3" [formGroup]="formGroup" (ngSubmit)="submit()">
+  <h3 style="color: red">Bloquear cuentas de este usuario</h3>
+
+  <div>
+    <p for="nombre">Nombre: {{cliente.nombre}} {{cliente.apellido_paterno}} {{cliente.apellido_materno}}</p>
+  </div>
+  <div>
+    <p for="apellido_paterno"
+      >Cédula de Identidad: {{cliente.ci}}</p
+    >
+  </div>
+  <div>
+    <label for="apellido_materno"
+      >Motivo:</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="apellido_materno"
+    />
+  </div>
+
+  <div class="pt-4">
+    <button type="submit" class="btn btn-danger float-end text-white m-1">
+      BLOQUEAR CUENTA
+    </button>
+  </div>
+</form>

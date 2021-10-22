@@ -48,6 +48,12 @@
             <app-pagos-mensuales-cliente [cuotasMensuales]="cuotasMensuales"></app-pagos-mensuales-cliente>
           </ng-template>
         </li>
+        <li ngbNavItem>
+          <a ngbNavLink>Bloqueo/Desbloqueo</a>
+          <ng-template ngbNavContent>
+            <app-bloqueo-cliente [cliente]="cliente"></app-bloqueo-cliente>
+          </ng-template>
+        </li>
       </ul>
       <div [ngbNavOutlet]="nav"></div>
     </div>

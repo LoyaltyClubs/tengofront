@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Tarjeta } from 'src/app/api-client/api.types';
 import { ClienteService } from 'src/app/api-client/cliente.service';
 
@@ -15,11 +15,16 @@ export class TarjetaClienteComponent implements OnInit {
   @Input() cliente_id: number;
   
   formGroup: FormGroup = this.formBuilder.group({
-    numero: ['', Validators.required],
+    numero: ['', [
+      Validators.required,
+      Validators.minLength(16),
+      Validators.maxLength(16),
+      Validators.pattern(/^[0-9]\d*$/)
+    ]],
     fecha_vencimiento: ['', Validators.required],
     tipo_id: ['', Validators.required],
     saldo: ['', Validators.required],
-    estado: ['Vigente', Validators.required],
+    estado: [5, Validators.required],
   });
 
   constructor(
@@ -56,6 +61,15 @@ export class TarjetaClienteComponent implements OnInit {
         this.formGroup.reset();
       }
     );
+  }
+
+  isInvalid(inputName: string): boolean {
+    const control = this.formGroup.controls[inputName]
+    return control.errors != null && control.touched
+  }
+
+  get numero() {
+    return this.formGroup.get('numero') as FormControl
   }
 
   obtenerTarjetas(){

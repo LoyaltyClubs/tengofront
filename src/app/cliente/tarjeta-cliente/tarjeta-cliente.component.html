@@ -38,7 +38,23 @@
                     type="text"
                     formControlName="numero"
                     class="form-control"
+                    [ngClass]="{
+                      'form-control': true,
+                      'is-invalid': isInvalid('numero')
+                    }"
                   />
+                  <div *ngIf="numero.invalid && (numero.dirty || numero.touched)" class="alert">
+
+                    <div *ngIf="numero.errors?.required">
+                       <small>El número de la tarjeta es requerido.</small>
+                    </div>
+                    <div *ngIf="numero.errors?.pattern">
+                      <small>Ingrese solo números.</small>
+                   </div>
+                    <div *ngIf="numero.errors?.minlength">
+                      <small>El número debe tener 16 dígitos.</small>
+                    </div>
+                 </div>
                 </div>
                 <div class="form-group label-floating">
                   <label class="control-label">Fecha de Vencimiento</label>
@@ -49,34 +65,13 @@
                     placeholder="dd/MM/yyyy"
                   />
                 </div>
-                <div class="form-group label-floating">
-                  <label class="control-label">Saldo</label>
-                  <input
-                    type="number"
-                    formControlName="saldo"
-                    class="form-control"
-                  />
-                </div>
-                <div>
-                  <label class="label-control">Tipo tarjeta </label>
-                  <select
-                    class="bootstrap-select"
-                    data-style="select-with-transition"
-                    title="Tipo Tarjeta"
-                    data-size="3"
-                    formControlName="tipo_id"
-                  >
-                    <option disabled >Tipo</option>
-                    <option value="5" selected>Nominada</option>
-                    <option value="15">Innominada</option>
-                  </select>
-                </div>
               </div>
               <div class="modal-footer">
                 <button
                   type="submit"
                   data-bs-dismiss="modal"
                   class="btn btn-primary"
+                  [disabled]="formGroup.invalid"
                 >
                   Guardar
                 </button>
@@ -105,12 +100,12 @@
           <tbody>
             <tr *ngFor="let tarjeta of tarjetas">
               <td>{{ tarjeta.id }}</td>
-              <td>{{ tarjeta.fecha_vencimiento | date:'shortDate'}}</td>
+              <td>{{ tarjeta.fecha_vencimiento | date: "shortDate" }}</td>
               <td>{{ tarjeta.numero }}</td>
               <td>{{ tarjeta.saldo }}</td>
               <td>
                 <select
-                class="form-control form-select w-100"
+                  class="form-control form-select w-100"
                   data-style="select-with-transition"
                   title="Estado"
                   data-size="3"
